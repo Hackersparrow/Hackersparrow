@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:background="#888">
+    
+    <ImageView
+        android:id="@+id/row_ship___ship_image"
+        android:layout_width="160dp"
+        android:layout_height="180dp"
+        android:background="#900"/>
+
+    <TextView
+        android:id="@+id/row_ship___ship_name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_toRightOf="@id/row_ship___ship_image"
+        />
+
+    <TextView
+        android:id="@+id/row_ship___ship_price"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/row_ship___ship_name"
+        android:layout_toRightOf="@id/row_ship___ship_image"/>
+
+</RelativeLayout>
