@@ -16,7 +16,11 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.hackersparrow.hackersparrow.R;
+import com.hackersparrow.hackersparrow.model.Port;
 import com.hackersparrow.hackersparrow.utils.Utils;
+
+import java.util.LinkedList;
+import java.util.List;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import static com.hackersparrow.hackersparrow.utils.Utils.MessageType.DIALOG;
@@ -27,12 +31,27 @@ public class MapActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_ASK_FOR_LOCATION_PERMISSION = 10;
     private SupportMapFragment mapFragment;
     private GoogleMap myGoogleMap;
+    private List<Port> listOfPorts = new LinkedList<>();
+    private Port port1;
+    private Port port2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
         initializeMap();
+        port1.setId("2");
+        port1.setLatitudes((float) 36.597096683988646);
+        port1.setLongitudes((float) -4.511904716491699);
+        port1.setName("Costa del Sol");
+        port1.setUrl("http://www.andaluciadeviaje.es/visitfotos/400px/2012-02-243161ec.jpg");
+
+        port1.setId("1");
+        port1.setLatitudes((float) 38.9149197);
+        port1.setLongitudes((float) 1.4374745);
+        port1.setName("Ibiza");
+        port1.setUrl("http://guias.masmar.net/var/masmar/storage/images/gu%C3%ADas/puertos/baleares/puerto-deportivo-de-santa-eularia.-ibiza/197205-1-esl-ES/Puerto-deportivo-de-Santa-Eularia.-Ibiza_articlefull.jpg");
+        listOfPorts.add(port2);
     }
 
     private void initializeMap() {
