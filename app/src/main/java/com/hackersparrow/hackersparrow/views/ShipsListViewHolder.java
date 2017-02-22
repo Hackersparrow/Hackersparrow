@@ -21,9 +21,6 @@ public class ShipsListViewHolder extends RecyclerView.ViewHolder{
         shipImage = (ImageView) itemView.findViewById(R.id.row_ship___ship_image);
         shipName = (TextView) itemView.findViewById(R.id.row_ship___ship_name);
         shipCapability = (TextView) itemView.findViewById(R.id.row_ship___ship_price);
-
-        shipName.setText(ship.getName());
-        shipCapability.setText(ship.getCapability());
     }
 
     public Ship getShip() {
@@ -32,6 +29,8 @@ public class ShipsListViewHolder extends RecyclerView.ViewHolder{
 
     public void setShip(Ship ship) {
         this.ship = ship;
+        shipName.setText(ship.getName());
+        shipCapability.setText(ship.getCapability());
     }
 
 }
