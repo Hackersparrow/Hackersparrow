@@ -1,4 +1,4 @@
-package com.hackersparrow.hackersparrow.Activities;
+package com.hackersparrow.hackersparrow.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.PixelFormat;
