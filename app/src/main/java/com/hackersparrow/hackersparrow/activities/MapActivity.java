@@ -17,6 +17,7 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.hackersparrow.hackersparrow.R;
 import com.hackersparrow.hackersparrow.model.Port;
+import com.hackersparrow.hackersparrow.utils.MapPinsAdder;
 import com.hackersparrow.hackersparrow.utils.Utils;
 
 import java.util.LinkedList;
@@ -32,8 +33,8 @@ public class MapActivity extends AppCompatActivity {
     private SupportMapFragment mapFragment;
     private GoogleMap myGoogleMap;
     private List<Port> listOfPorts = new LinkedList<>();
-    private Port port1;
-    private Port port2;
+    private Port port1 = new Port();
+    private Port port2 = new Port();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,16 +42,17 @@ public class MapActivity extends AppCompatActivity {
         setContentView(R.layout.activity_map);
         initializeMap();
         port1.setId("2");
-        port1.setLatitudes((float) 36.597096683988646);
-        port1.setLongitudes((float) -4.511904716491699);
+        port1.setLatitude((float) 36.597096683988646);
+        port1.setLongitude((float) -4.511904716491699);
         port1.setName("Costa del Sol");
         port1.setUrl("http://www.andaluciadeviaje.es/visitfotos/400px/2012-02-243161ec.jpg");
+        listOfPorts.add(port1);
 
-        port1.setId("1");
-        port1.setLatitudes((float) 38.9149197);
-        port1.setLongitudes((float) 1.4374745);
-        port1.setName("Ibiza");
-        port1.setUrl("http://guias.masmar.net/var/masmar/storage/images/gu%C3%ADas/puertos/baleares/puerto-deportivo-de-santa-eularia.-ibiza/197205-1-esl-ES/Puerto-deportivo-de-Santa-Eularia.-Ibiza_articlefull.jpg");
+        port2.setId("1");
+        port2.setLatitude((float) 38.9149197);
+        port2.setLongitude((float) 1.4374745);
+        port2.setName("Ibiza");
+        port2.setUrl("http://guias.masmar.net/var/masmar/storage/images/gu%C3%ADas/puertos/baleares/puerto-deportivo-de-santa-eularia.-ibiza/197205-1-esl-ES/Puerto-deportivo-de-Santa-Eularia.-Ibiza_articlefull.jpg");
         listOfPorts.add(port2);
     }
 
@@ -66,6 +68,7 @@ public class MapActivity extends AppCompatActivity {
                             .show();
                 } else {
                     setupMap(googleMap);
+                    addpins(googleMap);
                 }
             }
         });
@@ -141,6 +144,16 @@ public class MapActivity extends AppCompatActivity {
             }
         }
     }
+public void addpins(GoogleMap googleMap){
+    List<MapPinsAdder.MapPinnable> pins = new LinkedList<>();
+    for (Port port: listOfPorts) {
+        MapPinsAdder.MapPinnable pin = port;
+
+        pins.add(pin);
+    }
+    MapPinsAdder.addPins(pins, googleMap, this);
+}
+
 
 }
 

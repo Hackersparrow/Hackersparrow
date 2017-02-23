@@ -5,8 +5,8 @@ import com.hackersparrow.hackersparrow.utils.MapPinsAdder;
 public class Port implements MapPinsAdder.MapPinnable<Port>{
     private String id;
     private String name;
-    private float latitudes;
-    private float longitudes;
+    private float latitude;
+    private float longitude;
 
     public Port() {
     }
@@ -29,21 +29,6 @@ public class Port implements MapPinsAdder.MapPinnable<Port>{
         this.name = name;
     }
 
-    public float getLatitudes() {
-        return latitudes;
-    }
-
-    public void setLatitudes(float latitudes) {
-        this.latitudes = latitudes;
-    }
-
-    public float getLongitudes() {
-        return longitudes;
-    }
-
-    public void setLongitudes(float longitudes) {
-        this.longitudes = longitudes;
-    }
 
     public String getUrl() {
         return url;
@@ -55,12 +40,20 @@ public class Port implements MapPinsAdder.MapPinnable<Port>{
 
     @Override
     public float getLatitude() {
-        return this.getLatitudes();
+        return this.latitude;
+    }
+
+    public void setLatitude(float latitudes) {
+        this.latitude = latitudes;
+    }
+
+    public void setLongitude(float longitudes) {
+        this.longitude = longitudes;
     }
 
     @Override
     public float getLongitude() {
-        return this.getLongitudes();
+        return this.longitude;
     }
 
     @Override
