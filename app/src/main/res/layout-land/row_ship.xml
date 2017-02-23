@@ -90,7 +90,7 @@
 
             <TextView
                 tools:text="Velero"
-                android:id="@+id/row_ship___ship_price"
+                android:id="@+id/row_ship___ship_type"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
@@ -98,6 +98,7 @@
                 />
 
             <TextView
+                android:id="@+id/row_ship___ship_patron"
                 android:textSize="10dp"
                 android:textStyle="bold"
                 android:textAlignment="center"
@@ -106,9 +107,10 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/patron"
                 android:layout_weight="1.2"
-                android:text="Obligatorio"/>
+                tools:text="Obligatorio"/>
 
             <TextView
+                android:id="@+id/row_ship___ship_capability"
                 android:textSize="10dp"
                 android:textStyle="bold"
                 android:textAlignment="center"
@@ -127,10 +129,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/cabina"
-                android:text="3"
+                android:text="-"
                 android:layout_weight="1.35"/>
 
             <TextView
+                android:id="@+id/row_ship___ship_meters"
                 android:textSize="10dp"
                 android:textStyle="bold"
                 android:textAlignment="center"
@@ -138,7 +141,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/tamano"
-                android:text="10.4"
                 android:layout_weight="1.35"/>
 
             <TextView
@@ -149,7 +151,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/wc"
-                android:text="2"
+                android:text="-"
                 android:layout_weight="1.35"/>
         </LinearLayout>
 
