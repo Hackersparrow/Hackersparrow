@@ -5,12 +5,12 @@
     android:id="@+id/card_view"
     android:layout_gravity="center_horizontal"
     android:layout_width="match_parent"
-    android:layout_height="250dp"
+    android:layout_height="320dp"
     android:layout_margin="7dp"
     card_view:cardCornerRadius="4dp"
     >
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -19,14 +19,18 @@
         <ImageView
             android:id="@+id/row_ship___ship_image"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="match_parent"
             android:src="@drawable/sample_sixteennine"
             android:scaleType="fitXY"
             />
         <LinearLayout
+            android:id="@+id/landscape_layout_infobar1"
+            android:layout_above="@+id/landscape_layout_infobar2"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:background="#96ffffff"
+            >
 
             <TextView
                 android:text="Dufour 455 Grand Large"
@@ -35,7 +39,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
                 android:textStyle="bold"
-                android:gravity="left"
+                android:gravity="center"
                 android:textSize="16sp"
                 />
 
@@ -77,9 +81,12 @@
 
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/landscape_layout_infobar2"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:background="#96ffffff">
 
             <TextView
                 tools:text="Velero"
@@ -147,5 +154,5 @@
         </LinearLayout>
 
 
-    </LinearLayout>
+    </RelativeLayout>
 </android.support.v7.widget.CardView>

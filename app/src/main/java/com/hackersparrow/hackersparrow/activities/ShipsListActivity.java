@@ -1,5 +1,6 @@
 package com.hackersparrow.hackersparrow.activities;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -21,14 +22,24 @@ public class ShipsListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            getSupportActionBar().hide();
+        }
+        else {
+            getSupportActionBar().show();
+        }
+
         setContentView(R.layout.activity_ships_list);
 
         for (int i = 0; i < 20; i++){
             Ship newShip = new Ship();
-            newShip.setName("Barquito " + i);
-            newShip.setCapability(i + "metros");
+            newShip.setName("Dufourt 455 Grand Large");
+            newShip.setCapability("Velero");
             shipList.add(newShip);
         }
+
+
 
         shipsRecyclerView = (RecyclerView) findViewById(R.id.ships_lis_recyclerView);
         shipsRecyclerView.setLayoutManager(new LinearLayoutManager(this));

@@ -8,7 +8,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import com.hackersparrow.hackersparrow.MainActivity;
+
 import com.hackersparrow.hackersparrow.R;
 
 public class SplashScreen extends Activity {
@@ -49,7 +49,7 @@ public class SplashScreen extends Activity {
                         waited += 100;
                     }
                     Intent intent = new Intent(SplashScreen.this,
-                            MainActivity.class);
+                            ShipsListActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
                     SplashScreen.this.finish();
