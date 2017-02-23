@@ -13,11 +13,11 @@ public class Ship {
      */
     private int id;
     private String imgURL;
-    private boolean patron;
+    private String patron;
     private String name;
     private String type;
     private String capability;
-    private float meters;
+    private String meters;
 
     public int getId() {
         return id;
@@ -35,11 +35,11 @@ public class Ship {
         this.imgURL = imgURL;
     }
 
-    public boolean isPatron() {
+    public String getPatron() {
         return patron;
     }
 
-    public void setPatron(boolean patron) {
+    public void setPatron(String patron) {
         this.patron = patron;
     }
 
@@ -67,11 +67,11 @@ public class Ship {
         this.capability = capability;
     }
 
-    public float getMeters() {
+    public String getMeters() {
         return meters;
     }
 
-    public void setMeters(float meters) {
+    public void setMeters(String meters) {
         this.meters = meters;
     }
 }
