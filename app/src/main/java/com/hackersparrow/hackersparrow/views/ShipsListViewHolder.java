@@ -13,6 +13,7 @@ import com.squareup.picasso.Picasso;
 public class ShipsListViewHolder extends RecyclerView.ViewHolder{
 
     private Ship ship;
+    private TextView shipPatron;
     private ImageView shipImage;
     private TextView shipName;
     private TextView shipCapability;
@@ -24,7 +25,7 @@ public class ShipsListViewHolder extends RecyclerView.ViewHolder{
         shipName = (TextView) itemView.findViewById(R.id.row_ship___ship_name);
         shipCapability = (TextView) itemView.findViewById(R.id.row_ship___ship_capability);
         shipMeters = (TextView) itemView.findViewById(R.id.row_ship___ship_meters);
-
+        shipPatron = (TextView) itemView.findViewById(R.id.row_ship___ship_patron);
     }
 
     public Ship getShip() {
@@ -33,6 +34,7 @@ public class ShipsListViewHolder extends RecyclerView.ViewHolder{
 
     public void setShip(Ship ship) {
         this.ship = ship;
+        shipPatron.setText(ship.getPatron());
         shipName.setText(ship.getName());
         shipCapability.setText(ship.getCapability());
         shipMeters.setText("" + ship.getMeters());
