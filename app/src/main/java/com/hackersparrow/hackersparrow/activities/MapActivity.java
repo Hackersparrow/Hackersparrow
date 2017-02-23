@@ -4,6 +4,8 @@ import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -45,6 +47,10 @@ public class MapActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
+
+        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#0096C8"));
+        getSupportActionBar().setBackgroundDrawable(colorDrawable);
+
         initializeMap();
         port1.setId("2");
         port1.setLatitude((float) 36.597096683988646);

@@ -1,6 +1,9 @@
 package com.hackersparrow.hackersparrow.activities;
 
+import android.app.ActionBar;
 import android.content.res.Configuration;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -24,6 +27,8 @@ public class ShipsListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#0096C8"));
+        getSupportActionBar().setBackgroundDrawable(colorDrawable);
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
             getSupportActionBar().hide();
         }
