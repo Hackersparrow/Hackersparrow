@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.hackersparrow.hackersparrow.R;
 import com.hackersparrow.hackersparrow.model.Ship;
+import com.squareup.picasso.Picasso;
 
 public class ShipsListViewHolder extends RecyclerView.ViewHolder{
 
@@ -35,6 +36,7 @@ public class ShipsListViewHolder extends RecyclerView.ViewHolder{
         shipName.setText(ship.getName());
         shipCapability.setText(ship.getCapability());
         shipMeters.setText("" + ship.getMeters());
+        Picasso.with(itemView.getContext()).load(ship.getImgURL()).into(shipImage);
     }
 
 }
