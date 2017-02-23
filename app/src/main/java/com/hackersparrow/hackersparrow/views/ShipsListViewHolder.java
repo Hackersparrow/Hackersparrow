@@ -21,6 +21,8 @@ public class ShipsListViewHolder extends RecyclerView.ViewHolder{
         shipImage = (ImageView) itemView.findViewById(R.id.row_ship___ship_image);
         shipName = (TextView) itemView.findViewById(R.id.row_ship___ship_name);
         shipCapability = (TextView) itemView.findViewById(R.id.row_ship___ship_price);
+
+
     }
 
     public Ship getShip() {
