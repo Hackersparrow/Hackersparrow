@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:layout_margin="7dp"
+    card_view:cardCornerRadius="4dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:id="@+id/row_ship___ship_image"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:src="@drawable/sample_sixteennine"
+            android:scaleType="fitXY"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:text="Dufour 455 Grand Large"
+                android:id="@+id/row_ship___ship_name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8"
+                android:textStyle="bold"
+                android:gravity="left"
+                android:textSize="16sp"
+                />
+
+            <ImageView
+                android:layout_margin="4dp"
+                android:padding="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/patron"
+                android:layout_weight="1.2"/>
+
+            <ImageView
+                android:layout_margin="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/pasajeros"
+                android:layout_weight="1.35"/>
+
+            <ImageView
+                android:layout_margin="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/cabina"
+                android:layout_weight="1.35"/>
+
+            <ImageView
+                android:layout_margin="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/tamano"
+                android:layout_weight="1.35"/>
+
+            <ImageView
+                android:layout_margin="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/wc"
+                android:layout_weight="1.35"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                tools:text="Velero"
+                android:id="@+id/row_ship___ship_type"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8"
+                android:gravity="center"
+                />
+
+            <TextView
+                android:textSize="10dp"
+                android:id="@+id/row_ship___ship_patron"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:layout_margin="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/patron"
+                android:layout_weight="1.2"
+                android:text="Obligatorio"/>
+
+            <TextView
+                android:textSize="10dp"
+                android:id="@+id/row_ship___ship_capability"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:layout_margin="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/pasajeros"
+                android:text="8+2"
+                android:layout_weight="1.35"/>
+
+            <TextView
+                android:textSize="10dp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:layout_margin="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/cabina"
+                android:text="-"
+                android:layout_weight="1.35"/>
+
+            <TextView
+                android:textSize="10dp"
+                android:id="@+id/row_ship___ship_meters"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:layout_margin="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/tamano"
+                android:text="10.4"
+                android:layout_weight="1.35"/>
+
+            <TextView
+                android:textSize="10dp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:layout_margin="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/wc"
+                android:text="-"
+                android:layout_weight="1.35"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>

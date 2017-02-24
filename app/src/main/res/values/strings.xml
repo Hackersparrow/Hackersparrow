@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Hackersparrow</string>
+    <string name="defaultProgressTitle">defaultProgressTitulo</string>
+    <string name="permission_location_rationale_title">permission_location_rationale_titulo</string>
+    <string name="permission_location_rationale_msg">permision_lacation_rationale_mensaje</string>
+    <string name="permission_granted">Permiso concedido</string>
+    <string name="permission_denied_location_title">permission_denied_location_titulo</string>
+    <string name="permission_denied_location_msg">permission_denied_location_mensaje</string>
+</resources>
