@@ -10,8 +10,6 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -20,6 +18,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.hackersparrow.hackersparrow.R;
 import com.hackersparrow.hackersparrow.model.Port;
 import com.hackersparrow.hackersparrow.utils.MapPinsAdder;
@@ -34,13 +33,12 @@ import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import static com.hackersparrow.hackersparrow.utils.Utils.MessageType.DIALOG;
 import static com.hackersparrow.hackersparrow.utils.Utils.MessageType.TOAST;
 
-public class MapActivity extends AppCompatActivity {
+public class MapActivity extends AppCompatActivity implements GoogleMap.OnInfoWindowClickListener {
 
     private static final int REQUEST_CODE_ASK_FOR_LOCATION_PERMISSION = 10;
     private SupportMapFragment mapFragment;
     private GoogleMap myGoogleMap;
     private List<Port> listOfPorts = new LinkedList<>();
-    private Button shipsButton;
     private PortsParserXML xmlParser = new PortsParserXML();
 
     @Override
@@ -61,16 +59,6 @@ public class MapActivity extends AppCompatActivity {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-        shipsButton = (Button) findViewById(R.id.activity_map___button_ships);
-
-        shipsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MapActivity.this,
-                        ShipsListActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     private void initializeMap() {
@@ -107,6 +95,7 @@ public class MapActivity extends AppCompatActivity {
             return;
         }
         googleMap.setMyLocationEnabled(true);
+        myGoogleMap.setOnInfoWindowClickListener(this);
     }
 
     public static void centerMapInPosition(GoogleMap googleMap, double latitude, double longitude) {
@@ -161,17 +150,23 @@ public class MapActivity extends AppCompatActivity {
             }
         }
     }
-public void addpins(GoogleMap googleMap){
-    List<MapPinsAdder.MapPinnable> pins = new LinkedList<>();
-    for (Port port: listOfPorts) {
-        MapPinsAdder.MapPinnable pin = port;
+    
+    public void addpins(GoogleMap googleMap){
+        List<MapPinsAdder.MapPinnable> pins = new LinkedList<>();
+        for (Port port: listOfPorts) {
+            MapPinsAdder.MapPinnable pin = port;
 
-        pins.add(pin);
+            pins.add(pin);
+        }
+        MapPinsAdder.addPins(pins, googleMap, this);
+
     }
-    MapPinsAdder.addPins(pins, googleMap, this);
 
-}
-
-
+    @Override
+    public void onInfoWindowClick(Marker marker) {
+        Intent intent = new Intent(MapActivity.this,
+                ShipsListActivity.class);
+        startActivity(intent);
+    }
 }
 
