@@ -4,7 +4,7 @@ package com.hackersparrow.hackersparrow.utils;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.hackersparrow.hackersparrow.model.Ship;
+import com.hackersparrow.hackersparrow.model.Port;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -19,9 +19,9 @@ import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-public class PortsParserXML extends AsyncTask<String, Object, List<Ship>> {
+public class PortsParserXML extends AsyncTask<String, Object, List<Port>> {
 
-    public List<Ship> shipList = new LinkedList<>();
+    public List<Port> portList = new LinkedList<>();
     NodeList nodeList;
 
     @Override
@@ -30,7 +30,7 @@ public class PortsParserXML extends AsyncTask<String, Object, List<Ship>> {
     }
 
     @Override
-    protected List<Ship> doInBackground(String... Url) {
+    protected List<Port> doInBackground(String... Url) {
         try {
             URL url = new URL(Url[0]);
             DocumentBuilderFactory dbf = DocumentBuilderFactory
@@ -40,7 +40,7 @@ public class PortsParserXML extends AsyncTask<String, Object, List<Ship>> {
             Document doc = db.parse(new InputSource(url.openStream()));
             doc.getDocumentElement().normalize();
             // Locate the Tag Name
-            nodeList = doc.getElementsByTagName("barco");
+            nodeList = doc.getElementsByTagName("destino");
 
         } catch (Exception e) {
             Log.e("Error", e.getMessage());
@@ -50,30 +50,34 @@ public class PortsParserXML extends AsyncTask<String, Object, List<Ship>> {
         for (int temp = 0; temp < nodeList.getLength(); temp++) {
             Node nNode = nodeList.item(temp);
 
-            Ship newShip = new Ship();
+            Port newPort = new Port();
 
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element eElement = (Element) nNode;
-                newShip.setId(eElement.getAttribute("id"));
-                newShip.setImgURL(getNode("img", eElement));
-                newShip.setName(getNode("nombre", eElement));
-                newShip.setType(getNode("tipo", eElement));
-                newShip.setPatron(getNode("patron", eElement));
-                newShip.setCapability(getNode("pasajeros", eElement));
-                newShip.setMeters(getNode("eslora", eElement));
+                newPort.setId(eElement.getAttribute("id"));
+                newPort.setName(getNode("nombre", eElement));
+
+                String geolocation = getNode("geolocalizacion", eElement);
+                System.out.println("GEO: " + geolocation);
+
+                String[] separated = geolocation.split(",");
+                newPort.setLatitude(Float.parseFloat(separated[0]));
+                newPort.setLongitude(Float.parseFloat(separated[1]));
+                System.out.println("LAT: " + newPort.getLatitude());
+                System.out.println("LON: " + newPort.getLongitude());
 
             }
-            System.out.println(newShip.getId());
-            System.out.println(newShip);
-            shipList.add(newShip);
-            System.out.println(shipList.size());
+            System.out.println(newPort.getId());
+            System.out.println(newPort);
+            portList.add(newPort);
+            System.out.println("Tamaño: " + portList.size());
         }
 
-        return shipList;
+        return portList;
     }
 
     @Override
-    protected void onPostExecute(List<Ship> result) {
+    protected void onPostExecute(List<Port> result) {
         super.onPostExecute(result);
     }
 
