@@ -29,7 +29,7 @@ public class MapPinsAdder {
             final LatLng position = new LatLng(pinnable.getLatitude(), pinnable.getLongitude());
             final String profileImageUrl = pinnable.getPinImageUrl();
 
-            final MarkerOptions marker = new MarkerOptions().position(position).icon(BitmapDescriptorFactory.fromResource(R.drawable.iclauncher)).title(pinnable.getPinDescription());
+            final MarkerOptions marker = new MarkerOptions().position(position).icon(BitmapDescriptorFactory.fromResource(R.drawable.chincheta45px_2)).title(pinnable.getPinDescription());
 
             Marker m = googleMap.addMarker(marker);
             m.setTag(pinnable);
