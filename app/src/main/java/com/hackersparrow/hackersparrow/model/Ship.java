@@ -11,7 +11,7 @@ public class Ship {
         <eslora>10.40</eslora>
     </barco>
      */
-    private int id;
+    private String id;
     private String imgURL;
     private String patron;
     private String name;
@@ -19,11 +19,11 @@ public class Ship {
     private String capability;
     private String meters;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

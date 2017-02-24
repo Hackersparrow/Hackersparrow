@@ -54,7 +54,7 @@ public class DownloadXML extends AsyncTask<String, Object, List<Ship>> {
 
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element eElement = (Element) nNode;
-
+                newShip.setId(eElement.getAttribute("id"));
                 newShip.setImgURL(getNode("img", eElement));
                 newShip.setName(getNode("nombre", eElement));
                 newShip.setType(getNode("tipo", eElement));
@@ -63,7 +63,7 @@ public class DownloadXML extends AsyncTask<String, Object, List<Ship>> {
                 newShip.setMeters(getNode("eslora", eElement));
 
             }
-
+            System.out.println(newShip.getId());
             System.out.println(newShip);
             shipList.add(newShip);
             System.out.println(shipList.size());
