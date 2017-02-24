@@ -58,19 +58,13 @@ public class PortsParserXML extends AsyncTask<String, Object, List<Port>> {
                 newPort.setName(getNode("nombre", eElement));
 
                 String geolocation = getNode("geolocalizacion", eElement);
-                System.out.println("GEO: " + geolocation);
 
                 String[] separated = geolocation.split(",");
                 newPort.setLatitude(Float.parseFloat(separated[0]));
                 newPort.setLongitude(Float.parseFloat(separated[1]));
-                System.out.println("LAT: " + newPort.getLatitude());
-                System.out.println("LON: " + newPort.getLongitude());
 
             }
-            System.out.println(newPort.getId());
-            System.out.println(newPort);
             portList.add(newPort);
-            System.out.println("Tamaño: " + portList.size());
         }
 
         return portList;

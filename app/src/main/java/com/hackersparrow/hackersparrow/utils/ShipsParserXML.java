@@ -63,10 +63,7 @@ public class ShipsParserXML extends AsyncTask<String, Object, List<Ship>> {
                 newShip.setMeters(getNode("eslora", eElement));
 
             }
-            System.out.println(newShip.getId());
-            System.out.println(newShip);
             shipList.add(newShip);
-            System.out.println(shipList.size());
         }
 
         return shipList;
