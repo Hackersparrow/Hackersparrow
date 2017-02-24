@@ -3,9 +3,11 @@ package com.hackersparrow.hackersparrow.utils;
 import android.content.Context;
 
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.hackersparrow.hackersparrow.R;
 
 import java.util.List;
 
@@ -27,7 +29,7 @@ public class MapPinsAdder {
             final LatLng position = new LatLng(pinnable.getLatitude(), pinnable.getLongitude());
             final String profileImageUrl = pinnable.getPinImageUrl();
 
-            final MarkerOptions marker = new MarkerOptions().position(position).title(pinnable.getPinDescription());
+            final MarkerOptions marker = new MarkerOptions().position(position).icon(BitmapDescriptorFactory.fromResource(R.drawable.iclauncher)).title(pinnable.getPinDescription());
 
             Marker m = googleMap.addMarker(marker);
             m.setTag(pinnable);
