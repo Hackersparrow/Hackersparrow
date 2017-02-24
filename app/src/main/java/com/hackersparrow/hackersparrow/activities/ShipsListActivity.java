@@ -1,6 +1,5 @@
 package com.hackersparrow.hackersparrow.activities;
 
-import android.app.ActionBar;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -11,7 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import com.hackersparrow.hackersparrow.R;
 import com.hackersparrow.hackersparrow.adapters.ShipsAdapter;
 import com.hackersparrow.hackersparrow.model.Ship;
-import com.hackersparrow.hackersparrow.utils.DownloadXML;
+import com.hackersparrow.hackersparrow.utils.ShipsParserXML;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -21,7 +20,7 @@ public class ShipsListActivity extends AppCompatActivity {
     private RecyclerView shipsRecyclerView;
     private List<Ship> shipList = new LinkedList<>();
     private ShipsAdapter adapter;
-    private DownloadXML xmlParser = new DownloadXML();
+    private ShipsParserXML xmlParser = new ShipsParserXML();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
