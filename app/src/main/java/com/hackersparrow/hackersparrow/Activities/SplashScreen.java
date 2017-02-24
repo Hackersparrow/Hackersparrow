@@ -1,4 +1,5 @@
 package com.hackersparrow.hackersparrow.activities;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.PixelFormat;
@@ -6,9 +7,7 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-
 import com.hackersparrow.hackersparrow.R;
 
 public class SplashScreen extends Activity {
@@ -34,9 +33,9 @@ public class SplashScreen extends Activity {
 
         anim = AnimationUtils.loadAnimation(this, R.anim.translate);
         anim.reset();
-        ImageView iv = (ImageView) findViewById(R.id.splash);
-        iv.clearAnimation();
-        iv.startAnimation(anim);
+        //ImageView iv = (ImageView) findViewById(R.id.splash);
+        //iv.clearAnimation();
+        //iv.startAnimation(anim);
 
         splashTread = new Thread() {
             @Override
@@ -44,7 +43,7 @@ public class SplashScreen extends Activity {
                 try {
                     int waited = 0;
                     // Splash screen pause time
-                    while (waited < 3500) {
+                    while (waited < 5000) {
                         sleep(100);
                         waited += 100;
                     }
