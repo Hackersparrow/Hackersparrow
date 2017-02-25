@@ -19,9 +19,8 @@ import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-public class ShipDetailParserXML extends AsyncTask<String, Object, List<Ship>> {
+public class ShipDetailParserXML extends AsyncTask<String, Object, Ship> {
 
-    public List<Ship> shipList = new LinkedList<>();
     NodeList nodeList;
 
     @Override
@@ -30,56 +29,52 @@ public class ShipDetailParserXML extends AsyncTask<String, Object, List<Ship>> {
     }
 
     @Override
-    protected List<Ship> doInBackground(String... Url) {
-        try {
-            URL url = new URL(Url[0]);
-            DocumentBuilderFactory dbf = DocumentBuilderFactory
-                    .newInstance();
-            DocumentBuilder db = dbf.newDocumentBuilder();
-            // Download the XML file
-            Document doc = db.parse(new InputSource(url.openStream()));
-            doc.getDocumentElement().normalize();
-            // Locate the Tag Name
-            nodeList = doc.getElementsByTagName("barco");
-
-        } catch (Exception e) {
-            Log.e("Error", e.getMessage());
-            e.printStackTrace();
-        }
-
-        for (int temp = 0; temp < nodeList.getLength(); temp++) {
-            Node nNode = nodeList.item(temp);
-
-            Ship newShip = new Ship();
-
-            if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-                Element eElement = (Element) nNode;
-                newShip.setId(eElement.getAttribute("id"));
-                newShip.setImgURL(getNode("img", eElement));
-                newShip.setName(getNode("nombre", eElement));
-                newShip.setType(getNode("tipo", eElement));
-                newShip.setPatron(getNode("patron", eElement));
-                newShip.setCapability(getNode("pasajeros", eElement));
-                newShip.setMeters(getNode("eslora", eElement));
-
-            }
-            shipList.add(newShip);
-        }
-
-        return shipList;
+    protected Ship doInBackground(String... Url) {
+        Ship newShip = new Ship();
+        getImages(newShip, nodeList, Url);
+        //System.out.println(newShip.getDetailImages().toString()); --- IMAGE URLs ARE OK
+        return newShip;
     }
 
     @Override
-    protected void onPostExecute(List<Ship> result) {
+    protected void onPostExecute(Ship result) {
         super.onPostExecute(result);
     }
 
     // getNode function
     private static String getNode(String sTag, Element eElement) {
-        NodeList nlList = eElement.getElementsByTagName(sTag).item(0)
-                .getChildNodes();
+        NodeList nlList = eElement.getElementsByTagName(sTag).item(0).getChildNodes();
         Node nValue = (Node) nlList.item(0);
         return nValue.getNodeValue();
 
     }
+
+    public static void getImages(Ship ship, NodeList nodeList, String... Url){
+
+        try {
+            URL url = new URL(Url[0]);
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            // Download the XML file
+            Document doc = db.parse(new InputSource(url.openStream()));
+            doc.getDocumentElement().normalize();
+            // Locate the Tag Name
+            nodeList = doc.getElementsByTagName("img");
+            //System.out.println("TOTAL IMAGENES: " + nodeList.getLength());
+        } catch (Exception e) {
+            Log.e("Error", e.getMessage());
+            e.printStackTrace();
+        }
+
+        List<String> urls = new LinkedList<>();
+        for (int temp = 0; temp < nodeList.getLength(); temp++) {
+            Node nNode = nodeList.item(temp);
+            urls.add(nNode.getTextContent());
+            //System.out.println(nNode.getTextContent());
+        }
+        //System.out.println(urls.size());
+        ship.setDetailImages(urls);
+    }
+
+
 }

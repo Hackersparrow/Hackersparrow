@@ -1,6 +1,7 @@
 package com.hackersparrow.hackersparrow.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Ship implements Serializable {
     /*
@@ -20,6 +21,16 @@ public class Ship implements Serializable {
     private String type;
     private String capability;
     private String meters;
+
+    private List<String> detailImages;
+
+    public List<String> getDetailImages() {
+        return detailImages;
+    }
+
+    public void setDetailImages(List<String> detailImages) {
+        this.detailImages = detailImages;
+    }
 
     public String getId() {
         return id;
