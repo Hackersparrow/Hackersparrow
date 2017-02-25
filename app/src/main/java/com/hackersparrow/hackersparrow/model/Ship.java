@@ -21,6 +21,33 @@ public class Ship implements Serializable {
     private String type;
     private String capability;
     private String meters;
+    private String rooms;
+    private String wc;
+    private String price;
+
+    public String getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(String rooms) {
+        this.rooms = rooms;
+    }
+
+    public String getWc() {
+        return wc;
+    }
+
+    public void setWc(String wc) {
+        this.wc = wc;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
 
     private List<String> detailImages;
 

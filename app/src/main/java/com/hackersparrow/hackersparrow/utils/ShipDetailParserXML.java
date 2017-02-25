@@ -39,18 +39,31 @@ public class ShipDetailParserXML extends AsyncTask<String, Object, Ship> {
             doc.getDocumentElement().normalize();
 
             getImages(newShip, nodeList, doc, Url);
+            getBasicInfo(newShip, nodeList, doc, Url);
 
         } catch (Exception e) {
             Log.e("Error", e.getMessage());
             e.printStackTrace();
         }
-        //System.out.println(newShip.getDetailImages().toString()); --- IMAGE URLs ARE OK
+        showTestInfo(newShip);
         return newShip;
     }
 
     @Override
     protected void onPostExecute(Ship result) {
         super.onPostExecute(result);
+    }
+
+    private void showTestInfo(Ship newShip) {
+        System.out.println(newShip.getDetailImages().toString()); //--- IMAGE URLs ARE OK
+        System.out.println("Nombre: " + newShip.getName());
+        System.out.println("Tipo: " + newShip.getType());
+        System.out.println("Patron: " + newShip.getPatron());
+        System.out.println("Pasajeros: " + newShip.getCapability());
+        System.out.println("Cabinas: " + newShip.getRooms());
+        System.out.println("Eslora: " + newShip.getMeters());
+        System.out.println("WC: " + newShip.getWc());
+        System.out.println("Precio: " + newShip.getPrice());
     }
 
     // getNode function
@@ -72,5 +85,22 @@ public class ShipDetailParserXML extends AsyncTask<String, Object, Ship> {
         ship.setDetailImages(urls);
     }
 
+    public static void getBasicInfo(Ship ship, NodeList nodeList, Document doc, String... Url){
+        nodeList = doc.getElementsByTagName("barco");
+        for (int temp = 0; temp < nodeList.getLength(); temp++) {
 
+            Node nNode = nodeList.item(temp);
+            if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                Element eElement = (Element) nNode;
+                ship.setName(getNode("nombre", eElement));
+                ship.setType(getNode("tipo", eElement));
+                ship.setPatron(getNode("patron", eElement));
+                ship.setCapability(getNode("pasajeros", eElement));
+                ship.setRooms(getNode("cabinas", eElement));
+                ship.setMeters(getNode("eslora", eElement));
+                ship.setWc(getNode("wc", eElement));
+                ship.setPrice(getNode("precio", eElement));
+            }
+        }
+    }
 }
