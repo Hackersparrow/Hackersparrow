@@ -30,8 +30,15 @@ public class ShipsAdapter extends RecyclerView.Adapter<ShipsListViewHolder>{
 
     @Override
     public void onBindViewHolder(ShipsListViewHolder holder, int position) {
-        Ship ship = ships.get(position);
+        final Ship ship = ships.get(position);
         holder.setShip(ship);
+        holder.itemView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                System.out.println(ship.getId());
+            }
+
+        });
     }
 
     @Override
