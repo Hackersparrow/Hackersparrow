@@ -1,12 +1,17 @@
 package com.hackersparrow.hackersparrow.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.hackersparrow.hackersparrow.R;
+import com.hackersparrow.hackersparrow.activities.MapActivity;
+import com.hackersparrow.hackersparrow.activities.ShipDetailActivity;
+import com.hackersparrow.hackersparrow.activities.ShipsListActivity;
+import com.hackersparrow.hackersparrow.activities.SplashScreen;
 import com.hackersparrow.hackersparrow.model.Ship;
 import com.hackersparrow.hackersparrow.views.ShipsListViewHolder;
 
@@ -29,13 +34,14 @@ public class ShipsAdapter extends RecyclerView.Adapter<ShipsListViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(ShipsListViewHolder holder, int position) {
+    public void onBindViewHolder(final ShipsListViewHolder holder, int position) {
         final Ship ship = ships.get(position);
         holder.setShip(ship);
         holder.itemView.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                System.out.println(ship.getId());
+                Intent intent = new Intent(holder.itemView.getContext(), ShipDetailActivity.class);
+                holder.itemView.getContext().startActivity(intent);
             }
 
         });
