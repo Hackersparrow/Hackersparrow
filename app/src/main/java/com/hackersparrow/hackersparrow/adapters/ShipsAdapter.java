@@ -15,6 +15,7 @@ import com.hackersparrow.hackersparrow.activities.SplashScreen;
 import com.hackersparrow.hackersparrow.model.Ship;
 import com.hackersparrow.hackersparrow.views.ShipsListViewHolder;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class ShipsAdapter extends RecyclerView.Adapter<ShipsListViewHolder>{
@@ -41,6 +42,7 @@ public class ShipsAdapter extends RecyclerView.Adapter<ShipsListViewHolder>{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(holder.itemView.getContext(), ShipDetailActivity.class);
+                intent.putExtra("ship", (Serializable) ship);
                 holder.itemView.getContext().startActivity(intent);
             }
 

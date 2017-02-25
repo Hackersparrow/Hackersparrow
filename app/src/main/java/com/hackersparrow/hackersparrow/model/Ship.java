@@ -1,6 +1,8 @@
 package com.hackersparrow.hackersparrow.model;
 
-public class Ship {
+import java.io.Serializable;
+
+public class Ship implements Serializable {
     /*
     <barco id="59">
         <img>http://www.spanishcharters.com/imagenes/barcos/59/20-exterior_04-g.png</img>
