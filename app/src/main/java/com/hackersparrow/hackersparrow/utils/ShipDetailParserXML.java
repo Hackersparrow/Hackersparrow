@@ -31,7 +31,19 @@ public class ShipDetailParserXML extends AsyncTask<String, Object, Ship> {
     @Override
     protected Ship doInBackground(String... Url) {
         Ship newShip = new Ship();
-        getImages(newShip, nodeList, Url);
+        try {
+            URL url = new URL(Url[0]);
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            Document doc = db.parse(new InputSource(url.openStream()));
+            doc.getDocumentElement().normalize();
+
+            getImages(newShip, nodeList, doc, Url);
+
+        } catch (Exception e) {
+            Log.e("Error", e.getMessage());
+            e.printStackTrace();
+        }
         //System.out.println(newShip.getDetailImages().toString()); --- IMAGE URLs ARE OK
         return newShip;
     }
@@ -49,30 +61,14 @@ public class ShipDetailParserXML extends AsyncTask<String, Object, Ship> {
 
     }
 
-    public static void getImages(Ship ship, NodeList nodeList, String... Url){
-
-        try {
-            URL url = new URL(Url[0]);
-            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-            DocumentBuilder db = dbf.newDocumentBuilder();
-            // Download the XML file
-            Document doc = db.parse(new InputSource(url.openStream()));
-            doc.getDocumentElement().normalize();
-            // Locate the Tag Name
-            nodeList = doc.getElementsByTagName("img");
-            //System.out.println("TOTAL IMAGENES: " + nodeList.getLength());
-        } catch (Exception e) {
-            Log.e("Error", e.getMessage());
-            e.printStackTrace();
-        }
+    public static void getImages(Ship ship, NodeList nodeList, Document doc, String... Url){
+        nodeList = doc.getElementsByTagName("img");
 
         List<String> urls = new LinkedList<>();
         for (int temp = 0; temp < nodeList.getLength(); temp++) {
             Node nNode = nodeList.item(temp);
             urls.add(nNode.getTextContent());
-            //System.out.println(nNode.getTextContent());
         }
-        //System.out.println(urls.size());
         ship.setDetailImages(urls);
     }
 
