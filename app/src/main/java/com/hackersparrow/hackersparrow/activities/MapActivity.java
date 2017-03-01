@@ -166,6 +166,7 @@ public class MapActivity extends AppCompatActivity implements GoogleMap.OnInfoWi
     public void onInfoWindowClick(Marker marker) {
         Intent intent = new Intent(MapActivity.this,
                 ShipsListActivity.class);
+        intent.putExtra("marker_title", marker.getTitle());
         startActivity(intent);
     }
 }
