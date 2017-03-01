@@ -27,8 +27,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".activities.MapActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".activities.MapActivity" />
         <activity android:name=".activities.ShipsListActivity" />
 
         <!-- Google Maps API Key -->
@@ -39,7 +39,8 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".activities.ShipDetailActivity"></activity>
+        <activity android:name=".activities.ShipDetailActivity" />
+        <activity android:name=".activities.UserInfoActivity"></activity>
     </application>
 
 </manifest>
