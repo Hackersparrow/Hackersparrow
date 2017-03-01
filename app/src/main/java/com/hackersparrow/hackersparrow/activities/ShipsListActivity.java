@@ -1,5 +1,6 @@
 package com.hackersparrow.hackersparrow.activities;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -7,6 +8,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+
+import com.google.android.gms.maps.model.Marker;
 import com.hackersparrow.hackersparrow.R;
 import com.hackersparrow.hackersparrow.adapters.ShipsAdapter;
 import com.hackersparrow.hackersparrow.model.Ship;
@@ -26,8 +29,12 @@ public class ShipsListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Intent intent = getIntent();
+        String markerTitle = intent.getSerializableExtra("marker_title").toString();
+
         ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#0096C8"));
         getSupportActionBar().setBackgroundDrawable(colorDrawable);
+        getSupportActionBar().setTitle(markerTitle);
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
             getSupportActionBar().hide();
         }
