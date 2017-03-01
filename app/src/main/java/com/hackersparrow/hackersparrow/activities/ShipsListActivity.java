@@ -34,16 +34,12 @@ public class ShipsListActivity extends AppCompatActivity {
 
         ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#0096C8"));
         getSupportActionBar().setBackgroundDrawable(colorDrawable);
-        getSupportActionBar().setTitle(markerTitle);
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
             getSupportActionBar().hide();
         }
         else {
             getSupportActionBar().show();
         }
-
-        setContentView(R.layout.activity_ships_list);
-
 
         xmlParser.execute("http://spanishcharters.com/api/barcos");
 
@@ -54,6 +50,11 @@ public class ShipsListActivity extends AppCompatActivity {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
+
+        getSupportActionBar().setTitle(markerTitle + " (" +shipList.size() + ")");
+
+        setContentView(R.layout.activity_ships_list);
+
 
         shipsRecyclerView = (RecyclerView) findViewById(R.id.ships_lis_recyclerView);
         shipsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
