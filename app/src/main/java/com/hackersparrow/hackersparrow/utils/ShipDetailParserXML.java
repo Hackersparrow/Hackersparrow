@@ -2,6 +2,7 @@ package com.hackersparrow.hackersparrow.utils;
 
 
 import android.os.AsyncTask;
+import android.text.Html;
 import android.util.Log;
 
 import com.hackersparrow.hackersparrow.model.Ship;
@@ -113,7 +114,8 @@ public class ShipDetailParserXML extends AsyncTask<String, Object, Ship> {
             Node nNode = nodeList.item(temp);
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element eElement = (Element) nNode;
-                ship.setEspecifications(getNode("especificaciones", eElement));            }
+                String especifications = Html.fromHtml(getNode("especificaciones", eElement)).toString();
+                ship.setEspecifications(especifications);          }
         }
     }
 }
