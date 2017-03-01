@@ -61,6 +61,9 @@ public class ShipsParserXML extends AsyncTask<String, Object, List<Ship>> {
                 newShip.setPatron(getNode("patron", eElement));
                 newShip.setCapability(getNode("pasajeros", eElement));
                 newShip.setMeters(getNode("eslora", eElement));
+                newShip.setType(getNode("tipo", eElement));
+                newShip.setRooms(getNode("cabinas", eElement));
+                newShip.setPrice(getNode("precio", eElement));
 
             }
             shipList.add(newShip);
