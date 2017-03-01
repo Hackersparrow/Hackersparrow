@@ -71,14 +71,14 @@ public class ShipDetailParserXML extends AsyncTask<String, Object, Ship> {
     }
 
     // getNode function
-    private static String getNode(String sTag, Element eElement) {
+    private String getNode(String sTag, Element eElement) {
         NodeList nlList = eElement.getElementsByTagName(sTag).item(0).getChildNodes();
         Node nValue = (Node) nlList.item(0);
         return nValue.getNodeValue();
 
     }
 
-    public static void getImages(Ship ship, Document doc, String... Url) {
+    public void getImages(Ship ship, Document doc, String... Url) {
         NodeList nodeList = doc.getElementsByTagName("img");
 
         List<String> urls = new LinkedList<>();
@@ -89,7 +89,7 @@ public class ShipDetailParserXML extends AsyncTask<String, Object, Ship> {
         ship.setDetailImages(urls);
     }
 
-    public static void getBasicInfo(Ship ship, Document doc, String... Url) {
+    public void getBasicInfo(Ship ship, Document doc, String... Url) {
         NodeList nodeList = doc.getElementsByTagName("barco");
         for (int temp = 0; temp < nodeList.getLength(); temp++) {
 
@@ -108,7 +108,7 @@ public class ShipDetailParserXML extends AsyncTask<String, Object, Ship> {
         }
     }
 
-    public static void getInfo(Ship ship, Document doc, String... Url) {
+    public void getInfo(Ship ship, Document doc, String... Url) {
         NodeList nodeList = doc.getElementsByTagName("info");
         for (int temp = 0; temp < nodeList.getLength(); temp++) {
 
