@@ -16,15 +16,11 @@ import org.xml.sax.InputSource;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 public class ShipDetailParserXML extends AsyncTask<String, Object, Ship> {
-
-    NodeList nodeList;
 
     @Override
     protected void onPreExecute() {
@@ -41,10 +37,9 @@ public class ShipDetailParserXML extends AsyncTask<String, Object, Ship> {
             Document doc = db.parse(new InputSource(url.openStream()));
             doc.getDocumentElement().normalize();
 
-            getImages(newShip, nodeList, doc, Url);
-            getBasicInfo(newShip, nodeList, doc, Url);
-            getEspecifications(newShip, nodeList, doc, Url);
-            getExtras(newShip, nodeList, doc, Url);
+            getImages(newShip, doc, Url);
+            getBasicInfo(newShip, doc, Url);
+            getInfo(newShip, doc, Url);
 
         } catch (Exception e) {
             Log.e("Error", e.getMessage());
@@ -69,8 +64,10 @@ public class ShipDetailParserXML extends AsyncTask<String, Object, Ship> {
         System.out.println("Eslora: " + newShip.getMeters());
         System.out.println("WC: " + newShip.getWc());
         System.out.println("Precio: " + newShip.getPrice());
+        System.out.println("Equipo: " + newShip.getEquip());
         System.out.println("Especificaciones: " + newShip.getEspecifications());
-        //System.out.println("Extras: " + newShip.getExtras().toString());
+        System.out.println("Extras: " + newShip.getExtras());
+        System.out.println("Extras opcionales: " + newShip.getOptionalExtras());
     }
 
     // getNode function
@@ -81,8 +78,8 @@ public class ShipDetailParserXML extends AsyncTask<String, Object, Ship> {
 
     }
 
-    public static void getImages(Ship ship, NodeList nodeList, Document doc, String... Url) {
-        nodeList = doc.getElementsByTagName("img");
+    public static void getImages(Ship ship, Document doc, String... Url) {
+        NodeList nodeList = doc.getElementsByTagName("img");
 
         List<String> urls = new LinkedList<>();
         for (int temp = 0; temp < nodeList.getLength(); temp++) {
@@ -92,8 +89,8 @@ public class ShipDetailParserXML extends AsyncTask<String, Object, Ship> {
         ship.setDetailImages(urls);
     }
 
-    public static void getBasicInfo(Ship ship, NodeList nodeList, Document doc, String... Url) {
-        nodeList = doc.getElementsByTagName("barco");
+    public static void getBasicInfo(Ship ship, Document doc, String... Url) {
+        NodeList nodeList = doc.getElementsByTagName("barco");
         for (int temp = 0; temp < nodeList.getLength(); temp++) {
 
             Node nNode = nodeList.item(temp);
@@ -111,43 +108,22 @@ public class ShipDetailParserXML extends AsyncTask<String, Object, Ship> {
         }
     }
 
-    public static void getEspecifications(Ship ship, NodeList nodeList, Document doc, String... Url) {
-        nodeList = doc.getElementsByTagName("info");
+    public static void getInfo(Ship ship, Document doc, String... Url) {
+        NodeList nodeList = doc.getElementsByTagName("info");
         for (int temp = 0; temp < nodeList.getLength(); temp++) {
 
             Node nNode = nodeList.item(temp);
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element eElement = (Element) nNode;
                 String especifications = Html.fromHtml(getNode("especificaciones", eElement)).toString();
+
+                ship.setEquip(getNode("equipamiento", eElement));
                 ship.setEspecifications(especifications);
+                ship.setExtras(getNode("extras", eElement));
+                ship.setOptionalExtras(getNode("extras_opcionales", eElement));
+
             }
         }
     }
 
-    public static void getExtras(Ship ship, NodeList nodeList, Document doc, String... Url) {
-        nodeList = doc.getElementsByTagName("info");
-        String especifications = "";
-        List extraList = new LinkedList();
-
-        for (int temp = 0; temp < nodeList.getLength(); temp++) {
-            Node nNode = nodeList.item(temp);
-            if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-                Element eElement = (Element) nNode;
-                especifications = getNode("extras", eElement);
-                System.out.println(especifications);
-            }
-        }
-        Matcher m = Pattern.compile(
-                Pattern.quote("<li>")
-                + "(.*?)"
-                + Pattern.quote("</li>")
-            ).matcher(especifications);
-
-        while(m.find()){
-            String match = m.group(1);
-            extraList.add(match);
-            System.out.println(match);
-        }
-        ship.setExtras(extraList);
-    }
 }

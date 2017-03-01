@@ -25,8 +25,10 @@ public class Ship implements Serializable {
     private String wc;
     private String price;
     private String especifications;
-    private List<String> extras;
+    private String extras;
     private List<String> detailImages;
+    private String equip;
+    private String optionalExtras;
 
     public String getRooms() {
         return rooms;
@@ -124,11 +126,27 @@ public class Ship implements Serializable {
         return especifications;
     }
 
-    public void setExtras(List<String> extras) {
+    public void setExtras(String extras) {
         this.extras = extras;
     }
 
-    public List<String> getExtras() {
+    public String getExtras() {
         return extras;
+    }
+
+    public void setEquip(String equip) {
+        this.equip = equip;
+    }
+
+    public String getEquip() {
+        return equip;
+    }
+
+    public void setOptionalExtras(String optionalExtras) {
+        this.optionalExtras = optionalExtras;
+    }
+
+    public String getOptionalExtras() {
+        return optionalExtras;
     }
 }
