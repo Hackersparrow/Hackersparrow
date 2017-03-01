@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hackersparrow</string>
+    <string name="app_name">Spanish Charters</string>
     <string name="defaultProgressTitle">defaultProgressTitulo</string>
     <string name="permission_location_rationale_title">permission_location_rationale_titulo</string>
     <string name="permission_location_rationale_msg">permision_lacation_rationale_mensaje</string>
