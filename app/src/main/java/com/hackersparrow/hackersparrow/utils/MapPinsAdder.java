@@ -30,7 +30,7 @@ public class MapPinsAdder {
             final String profileImageUrl = pinnable.getPinImageUrl();
 
             final MarkerOptions marker = new MarkerOptions().position(position).icon(BitmapDescriptorFactory.fromResource(R.drawable.chincheta45px_2)).title(pinnable.getPinDescription());
-
+            marker.snippet("Pulsa para acceder");
             Marker m = googleMap.addMarker(marker);
             m.setTag(pinnable);
         }
