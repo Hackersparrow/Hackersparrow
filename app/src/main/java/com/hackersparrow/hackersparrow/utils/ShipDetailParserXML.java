@@ -19,9 +19,8 @@ import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-public class ShipDetailParserXML extends AsyncTask<String, Object, List<Ship>> {
+public class ShipDetailParserXML extends AsyncTask<String, Object, Ship> {
 
-    public List<Ship> shipList = new LinkedList<>();
     NodeList nodeList;
 
     @Override
@@ -30,56 +29,91 @@ public class ShipDetailParserXML extends AsyncTask<String, Object, List<Ship>> {
     }
 
     @Override
-    protected List<Ship> doInBackground(String... Url) {
+    protected Ship doInBackground(String... Url) {
+        Ship newShip = new Ship();
         try {
             URL url = new URL(Url[0]);
-            DocumentBuilderFactory dbf = DocumentBuilderFactory
-                    .newInstance();
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = dbf.newDocumentBuilder();
-            // Download the XML file
             Document doc = db.parse(new InputSource(url.openStream()));
             doc.getDocumentElement().normalize();
-            // Locate the Tag Name
-            nodeList = doc.getElementsByTagName("barco");
+
+            getImages(newShip, nodeList, doc, Url);
+            getBasicInfo(newShip, nodeList, doc, Url);
+            getEspecifications(newShip, nodeList, doc, Url);
 
         } catch (Exception e) {
             Log.e("Error", e.getMessage());
             e.printStackTrace();
         }
-
-        for (int temp = 0; temp < nodeList.getLength(); temp++) {
-            Node nNode = nodeList.item(temp);
-
-            Ship newShip = new Ship();
-
-            if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-                Element eElement = (Element) nNode;
-                newShip.setId(eElement.getAttribute("id"));
-                newShip.setImgURL(getNode("img", eElement));
-                newShip.setName(getNode("nombre", eElement));
-                newShip.setType(getNode("tipo", eElement));
-                newShip.setPatron(getNode("patron", eElement));
-                newShip.setCapability(getNode("pasajeros", eElement));
-                newShip.setMeters(getNode("eslora", eElement));
-
-            }
-            shipList.add(newShip);
-        }
-
-        return shipList;
+        showTestInfo(newShip);
+        return newShip;
     }
 
     @Override
-    protected void onPostExecute(List<Ship> result) {
+    protected void onPostExecute(Ship result) {
         super.onPostExecute(result);
+    }
+
+    private void showTestInfo(Ship newShip) {
+        System.out.println(newShip.getDetailImages().toString()); //--- IMAGE URLs ARE OK
+        System.out.println("Nombre: " + newShip.getName());
+        System.out.println("Tipo: " + newShip.getType());
+        System.out.println("Patron: " + newShip.getPatron());
+        System.out.println("Pasajeros: " + newShip.getCapability());
+        System.out.println("Cabinas: " + newShip.getRooms());
+        System.out.println("Eslora: " + newShip.getMeters());
+        System.out.println("WC: " + newShip.getWc());
+        System.out.println("Precio: " + newShip.getPrice());
+        System.out.println("Especificaciones: " + newShip.getEspecifications());
     }
 
     // getNode function
     private static String getNode(String sTag, Element eElement) {
-        NodeList nlList = eElement.getElementsByTagName(sTag).item(0)
-                .getChildNodes();
+        NodeList nlList = eElement.getElementsByTagName(sTag).item(0).getChildNodes();
         Node nValue = (Node) nlList.item(0);
         return nValue.getNodeValue();
 
+    }
+
+    public static void getImages(Ship ship, NodeList nodeList, Document doc, String... Url){
+        nodeList = doc.getElementsByTagName("img");
+
+        List<String> urls = new LinkedList<>();
+        for (int temp = 0; temp < nodeList.getLength(); temp++) {
+            Node nNode = nodeList.item(temp);
+            urls.add(nNode.getTextContent());
+        }
+        ship.setDetailImages(urls);
+    }
+
+    public static void getBasicInfo(Ship ship, NodeList nodeList, Document doc, String... Url){
+        nodeList = doc.getElementsByTagName("barco");
+        for (int temp = 0; temp < nodeList.getLength(); temp++) {
+
+            Node nNode = nodeList.item(temp);
+            if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                Element eElement = (Element) nNode;
+                ship.setName(getNode("nombre", eElement));
+                ship.setType(getNode("tipo", eElement));
+                ship.setPatron(getNode("patron", eElement));
+                ship.setCapability(getNode("pasajeros", eElement));
+                ship.setRooms(getNode("cabinas", eElement));
+                ship.setMeters(getNode("eslora", eElement));
+                ship.setWc(getNode("wc", eElement));
+                ship.setPrice(getNode("precio", eElement));
+            }
+        }
+    }
+
+    public static void getEspecifications(Ship ship, NodeList nodeList, Document doc, String... Url){
+        nodeList = doc.getElementsByTagName("info");
+        for (int temp = 0; temp < nodeList.getLength(); temp++) {
+
+            Node nNode = nodeList.item(temp);
+            if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                Element eElement = (Element) nNode;
+                ship.setEspecifications(getNode("especificaciones", eElement));            }
+        }
     }
 }
