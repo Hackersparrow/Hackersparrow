@@ -40,6 +40,7 @@ public class ShipDetailParserXML extends AsyncTask<String, Object, Ship> {
 
             getImages(newShip, nodeList, doc, Url);
             getBasicInfo(newShip, nodeList, doc, Url);
+            getEspecifications(newShip, nodeList, doc, Url);
 
         } catch (Exception e) {
             Log.e("Error", e.getMessage());
@@ -64,6 +65,7 @@ public class ShipDetailParserXML extends AsyncTask<String, Object, Ship> {
         System.out.println("Eslora: " + newShip.getMeters());
         System.out.println("WC: " + newShip.getWc());
         System.out.println("Precio: " + newShip.getPrice());
+        System.out.println("Especificaciones: " + newShip.getEspecifications());
     }
 
     // getNode function
@@ -101,6 +103,17 @@ public class ShipDetailParserXML extends AsyncTask<String, Object, Ship> {
                 ship.setWc(getNode("wc", eElement));
                 ship.setPrice(getNode("precio", eElement));
             }
+        }
+    }
+
+    public static void getEspecifications(Ship ship, NodeList nodeList, Document doc, String... Url){
+        nodeList = doc.getElementsByTagName("info");
+        for (int temp = 0; temp < nodeList.getLength(); temp++) {
+
+            Node nNode = nodeList.item(temp);
+            if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                Element eElement = (Element) nNode;
+                ship.setEspecifications(getNode("especificaciones", eElement));            }
         }
     }
 }

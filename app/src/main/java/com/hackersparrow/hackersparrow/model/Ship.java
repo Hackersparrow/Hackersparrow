@@ -24,6 +24,7 @@ public class Ship implements Serializable {
     private String rooms;
     private String wc;
     private String price;
+    private String especifications;
 
     public String getRooms() {
         return rooms;
@@ -113,5 +114,13 @@ public class Ship implements Serializable {
 
     public void setMeters(String meters) {
         this.meters = meters;
+    }
+
+    public void setEspecifications(String especifications) {
+        this.especifications = especifications;
+    }
+
+    public String getEspecifications() {
+        return especifications;
     }
 }
