@@ -52,7 +52,10 @@
     <Button
         android:text="Enviar datos"
         android:layout_margin="20dp"
+        android:padding="10dp"
+        android:textColor="#FFF"
+        android:background="@drawable/button_borders"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button2" />
+        android:id="@+id/button2"/>
 </LinearLayout>
