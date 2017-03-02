@@ -117,10 +117,33 @@ public class ShipDetailParserXML extends AsyncTask<String, Object, Ship> {
                 Element eElement = (Element) nNode;
                 String especifications = Html.fromHtml(getNode("especificaciones", eElement)).toString();
 
-                ship.setEquip(getNode("equipamiento", eElement));
+
+                //String equip = Html.fromHtml(getNode("equipamiento", eElement)).toString();
+                String equip = getNode("equipamiento", eElement);
+                equip = equip.replace("<strong>", "<b>");
+                equip = equip.replace("</strong>", "</b>");
+                equip = equip.replace("<ul>", "");
+                equip = equip.replace("<li>", " - ");
+                equip = equip.replace("</li>", "<br />");
+                equip = equip.replace("</ul>", "<br />");
+                equip = Html.fromHtml(equip).toString();
+                ship.setEquip(equip);
+
                 ship.setEspecifications(especifications);
-                ship.setExtras(getNode("extras", eElement));
-                ship.setOptionalExtras(getNode("extras_opcionales", eElement));
+
+                String extras = getNode("extras", eElement);
+                extras = extras.replace("<ul>", "");
+                extras = extras.replace("<li>", " - ");
+                extras = extras.replace("</li>", "");
+                extras = extras.replace("</ul>", "");
+                ship.setExtras(extras);
+
+                String optionalExtras = getNode("extras_opcionales", eElement);
+                optionalExtras = optionalExtras.replace("<ul>", "");
+                optionalExtras = optionalExtras.replace("<li>", " - ");
+                optionalExtras = optionalExtras.replace("</li>", "");
+                optionalExtras = optionalExtras.replace("</ul>", "");
+                ship.setOptionalExtras(optionalExtras);
 
             }
         }

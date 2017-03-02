@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
@@ -27,6 +28,16 @@ public class ShipDetailActivity extends AppCompatActivity {
     private SliderLayout sliderShow;
     TextSliderView textSliderView = new TextSliderView(this);
 
+    private TextView shipPatron;
+    private TextView shipCapability;
+    private TextView shipRooms;
+    private TextView shipMeters;
+    private TextView shipWC;
+    private TextView shipEquip;
+    private TextView shipEspecifications;
+    private TextView shipExtras;
+    private TextView shipOptionalExtras;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +50,16 @@ public class ShipDetailActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(ship.getName());
 
         setContentView(R.layout.activity_ship_detail);
+
+        shipPatron = (TextView) findViewById(R.id.detail_ship___ship_patron);
+        shipCapability = (TextView) findViewById(R.id.detail_ship___ship_capability);
+        shipRooms = (TextView) findViewById(R.id.detail_ship___ship_rooms);
+        shipMeters = (TextView) findViewById(R.id.detail_ship___ship_meters);
+        shipWC = (TextView) findViewById(R.id.detail_ship___ship_wc);
+        shipEquip = (TextView) findViewById(R.id.activity_ship_detail___equipment);
+        shipEspecifications = (TextView) findViewById(R.id.activity_ship_detail___specifications);
+        shipExtras = (TextView) findViewById(R.id.activity_ship_detail___obligatory_extras);
+        shipOptionalExtras = (TextView) findViewById(R.id.activity_ship_detail___opcional_extras);
 
         //System.out.println(detailUrl + ship.getId()); --> URL_TEST: OK
         parserXML.execute(detailUrl + ship.getId());
@@ -53,6 +74,16 @@ public class ShipDetailActivity extends AppCompatActivity {
                 textSliderView.image(url);
                 sliderShow.addSlider(textSliderView);
             }
+            System.out.println("PATRON: " + shipDetail.getPatron());
+            shipPatron.setText(shipDetail.getPatron());
+            shipCapability.setText(shipDetail.getCapability());
+            shipMeters.setText(shipDetail.getMeters());
+            shipRooms.setText(shipDetail.getRooms());
+            shipWC.setText(shipDetail.getWc());
+            shipEquip.setText(shipDetail.getEquip());
+            shipEspecifications.setText(shipDetail.getEspecifications());
+            shipExtras.setText(shipDetail.getExtras());
+            shipOptionalExtras.setText(shipDetail.getOptionalExtras());
 
         } catch (InterruptedException e) {
             e.printStackTrace();
