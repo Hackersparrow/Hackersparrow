@@ -99,7 +99,7 @@ public class MapActivity extends AppCompatActivity implements GoogleMap.OnInfoWi
                         //centerMapInPosition(myGoogleMap, arrayPortsLat[item], arrayPortsLon[item]);
                         Port port = listOfPorts.get(item);
                         Intent intent = new Intent(MapActivity.this, ShipsListActivity.class);
-                        intent.putExtra("marker_title", port.getName());
+                        intent.putExtra("port", port.getName());
                         startActivity(intent);
                     }
                 });

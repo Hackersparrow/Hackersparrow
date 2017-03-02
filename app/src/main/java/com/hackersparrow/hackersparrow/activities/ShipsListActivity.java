@@ -30,7 +30,7 @@ public class ShipsListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         Intent intent = getIntent();
-        String markerTitle = intent.getSerializableExtra("marker_title").toString();
+        String markerTitle = intent.getSerializableExtra("port").toString();
 
         ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#0096C8"));
         getSupportActionBar().setBackgroundDrawable(colorDrawable);

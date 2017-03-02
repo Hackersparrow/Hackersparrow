@@ -30,7 +30,7 @@ public class ShipDetailActivity extends AppCompatActivity {
     final static String detailUrl = "http://www.spanishcharters.com/api/barco/id:";
     private SliderLayout sliderShow;
     TextSliderView textSliderView = new TextSliderView(this);
-
+    private Ship shipDetail;
     private TextView shipPatron;
     private TextView shipCapability;
     private TextView shipRooms;
@@ -75,7 +75,7 @@ public class ShipDetailActivity extends AppCompatActivity {
         parserXML.execute(detailUrl + ship.getId());
 
         try {
-            Ship shipDetail = parserXML.get();
+            shipDetail = parserXML.get();
             shipDetail.setId(ship.getId());
 
             titleText.setText(shipDetail.getName());
@@ -107,6 +107,7 @@ public class ShipDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(ShipDetailActivity.this, UserInfoActivity.class);
+                i.putExtra("selected_ship", shipDetail);
                 startActivity(i);
             }
         });
