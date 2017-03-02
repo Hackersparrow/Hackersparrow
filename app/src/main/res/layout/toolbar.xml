@@ -11,6 +11,6 @@
         android:layout_gravity="center"
         android:id="@+id/action_bar_title"
         android:text="Solicitar información"
-        android:textColor="#ffffff"
-        android:textSize="24sp" />
+        style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+        />
 </LinearLayout>

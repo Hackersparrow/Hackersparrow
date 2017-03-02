@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.daimajia.slider.library.SliderLayout;
@@ -38,6 +41,9 @@ public class ShipDetailActivity extends AppCompatActivity {
     private TextView shipExtras;
     private TextView shipOptionalExtras;
 
+    private TextView titleText;
+    private TextView titleButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +54,8 @@ public class ShipDetailActivity extends AppCompatActivity {
         ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#0096C8"));
         getSupportActionBar().setBackgroundDrawable(colorDrawable);
         getSupportActionBar().setTitle(ship.getName());
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.toolbar_ships_details);
 
         setContentView(R.layout.activity_ship_detail);
 
@@ -60,6 +68,8 @@ public class ShipDetailActivity extends AppCompatActivity {
         shipEspecifications = (TextView) findViewById(R.id.activity_ship_detail___specifications);
         shipExtras = (TextView) findViewById(R.id.activity_ship_detail___obligatory_extras);
         shipOptionalExtras = (TextView) findViewById(R.id.activity_ship_detail___opcional_extras);
+        titleText = (TextView) findViewById(R.id.detail_bar_title_text);
+        titleButton = (TextView) findViewById(R.id.detail_bar_title_button);
 
         //System.out.println(detailUrl + ship.getId()); --> URL_TEST: OK
         parserXML.execute(detailUrl + ship.getId());
@@ -67,6 +77,7 @@ public class ShipDetailActivity extends AppCompatActivity {
         try {
             Ship shipDetail = parserXML.get();
 
+            titleText.setText(shipDetail.getName());
             SliderLayout sliderShow = (SliderLayout) findViewById(R.id.image_slider);
 
             for (String url: shipDetail.getDetailImages()){
@@ -91,12 +102,18 @@ public class ShipDetailActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-
+        titleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(ShipDetailActivity.this, UserInfoActivity.class);
+                startActivity(i);
+            }
+        });
 
 
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.detail_menu, menu);
         return true;
@@ -113,5 +130,5 @@ public class ShipDetailActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 }
