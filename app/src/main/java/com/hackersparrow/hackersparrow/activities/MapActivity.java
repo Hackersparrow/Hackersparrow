@@ -112,7 +112,6 @@ public class MapActivity extends AppCompatActivity implements GoogleMap.OnInfoWi
                 alert.show();
             }
         });
-
     }
 
     private void initializeMap() {
@@ -136,11 +135,17 @@ public class MapActivity extends AppCompatActivity implements GoogleMap.OnInfoWi
     private void setupMap(GoogleMap googleMap) {
         myGoogleMap = googleMap;
         centerMapInPosition(googleMap, 36.7166667, -4.4166667);
+        //TODO 1: Esto hay que terminarlo, verificar que cuando cargue el mapa se cierra el splash
+        googleMap.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
+            @Override
+            public void onMapLoaded() {
+                SplashScreen.maps.finish();
+            }
+        });
         googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);                //Activa el mapa hibrido
         googleMap.getUiSettings().setCompassEnabled(true);              //Activa la orientación de la brújula
         googleMap.getUiSettings().setZoomControlsEnabled(true);         //Activa los botones de control de zoom
         googleMap.getUiSettings().setMyLocationButtonEnabled(true);     //Activa el boton de mi localización.
-
         int isGPSTrackingEnabled = ActivityCompat.checkSelfPermission(getBaseContext(), ACCESS_FINE_LOCATION);
         int assistedGPSEnabled = ActivityCompat.checkSelfPermission(getBaseContext(), Manifest.permission.ACCESS_COARSE_LOCATION);
         if (isGPSTrackingEnabled != PackageManager.PERMISSION_GRANTED && assistedGPSEnabled != PackageManager.PERMISSION_GRANTED) {
@@ -223,5 +228,6 @@ public class MapActivity extends AppCompatActivity implements GoogleMap.OnInfoWi
         intent.putExtra("marker_title", marker.getTitle());
         startActivity(intent);
     }
+
 }
 

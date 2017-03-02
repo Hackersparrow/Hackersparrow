@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import com.hackersparrow.hackersparrow.R;
 
 public class SplashScreen extends Activity {
+    public static Activity maps;
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
         Window window = getWindow();
@@ -22,6 +23,7 @@ public class SplashScreen extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+        maps=this;
         StartAnimations();
     }
     private void StartAnimations() {
@@ -51,7 +53,7 @@ public class SplashScreen extends Activity {
                     //        MapActivity.class);
                     //intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     //startActivity(intent);
-                    SplashScreen.this.finish();
+                    //SplashScreen.this.finish();
                 } catch (InterruptedException e) {
                     // do nothing
                 } finally {
