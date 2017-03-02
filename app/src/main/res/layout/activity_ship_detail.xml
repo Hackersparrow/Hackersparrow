@@ -7,11 +7,17 @@
     android:orientation="vertical"
     tools:context="com.hackersparrow.hackersparrow.activities.ShipDetailActivity">
 
-    <ImageView
+    <com.daimajia.slider.library.SliderLayout
+        android:id="@+id/image_slider"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:src="@color/cardview_dark_background"
-        android:scaleType="fitXY"
+        />
+
+    <com.daimajia.slider.library.Indicators.PagerIndicator
+        android:id="@+id/custom_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         />
 
     <ScrollView

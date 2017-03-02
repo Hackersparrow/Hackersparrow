@@ -8,9 +8,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.daimajia.slider.library.SliderLayout;
+import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.hackersparrow.hackersparrow.R;
 import com.hackersparrow.hackersparrow.model.Ship;
 import com.hackersparrow.hackersparrow.utils.ShipDetailParserXML;
+
+import java.util.concurrent.ExecutionException;
 
 public class ShipDetailActivity extends AppCompatActivity {
 
@@ -20,6 +24,8 @@ public class ShipDetailActivity extends AppCompatActivity {
 
     ShipDetailParserXML parserXML = new ShipDetailParserXML();
     final static String detailUrl = "http://www.spanishcharters.com/api/barco/id:";
+    private SliderLayout sliderShow;
+    TextSliderView textSliderView = new TextSliderView(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +40,27 @@ public class ShipDetailActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_ship_detail);
 
-
-
         //System.out.println(detailUrl + ship.getId()); --> URL_TEST: OK
-
         parserXML.execute(detailUrl + ship.getId());
+
+        try {
+            Ship shipDetail = parserXML.get();
+
+            SliderLayout sliderShow = (SliderLayout) findViewById(R.id.image_slider);
+
+            for (String url: shipDetail.getDetailImages()){
+                textSliderView = new TextSliderView(this);
+                textSliderView.image(url);
+                sliderShow.addSlider(textSliderView);
+            }
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+
 
 
     }
