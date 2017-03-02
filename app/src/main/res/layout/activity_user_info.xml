@@ -21,7 +21,7 @@
         android:textCursorDrawable="@drawable/custom_cursor"
         android:ems="10"
         android:layout_margin="20dp"
-        android:id="@+id/name_editText" />
+        android:id="@+id/info_name" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -34,7 +34,7 @@
         android:backgroundTint="#fff"
         android:textCursorDrawable="@drawable/custom_cursor"
         android:layout_margin="20dp"
-        android:id="@+id/editText3" />
+        android:id="@+id/info_email" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -47,7 +47,7 @@
         android:textCursorDrawable="@drawable/custom_cursor"
         android:ems="10"
         android:layout_margin="20dp"
-        android:id="@+id/editText4" />
+        android:id="@+id/info_phone" />
 
     <Button
         android:text="Enviar datos"
@@ -57,5 +57,5 @@
         android:background="@drawable/button_borders"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button2"/>
+        android:id="@+id/info_send_button"/>
 </LinearLayout>
