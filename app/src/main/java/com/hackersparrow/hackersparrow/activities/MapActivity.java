@@ -1,6 +1,7 @@
 package com.hackersparrow.hackersparrow.activities;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -9,7 +10,11 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -25,6 +30,8 @@ import com.hackersparrow.hackersparrow.utils.MapPinsAdder;
 import com.hackersparrow.hackersparrow.utils.PortsParserXML;
 import com.hackersparrow.hackersparrow.utils.Utils;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -39,26 +46,68 @@ public class MapActivity extends AppCompatActivity implements GoogleMap.OnInfoWi
     private SupportMapFragment mapFragment;
     private GoogleMap myGoogleMap;
     private List<Port> listOfPorts = new LinkedList<>();
+    private String[] arrayPortsNames;
+    private float[] arrayPortsLat;
+    private float[] arrayPortsLon;
     private PortsParserXML xmlParser = new PortsParserXML();
+    private ImageView dialogButton;
+    private AlertDialog.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
+        builder = new AlertDialog.Builder(this);
+
         ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#0096C8"));
         getSupportActionBar().setBackgroundDrawable(colorDrawable);
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.toolbar_map);
+
+        dialogButton = (ImageView) findViewById(R.id.map_bar_title_button);
 
         initializeMap();
         xmlParser.execute("http://spanishcharters.com/api/destinos");
 
         try {
             listOfPorts = xmlParser.get();
+
+            arrayPortsNames = new String [listOfPorts.size()];
+            //arrayPortsLat = new float [listOfPorts.size()];
+            //arrayPortsLon = new float [listOfPorts.size()];
+
+            for(int i=0; i<listOfPorts.size(); i++) {
+                arrayPortsNames[i] = listOfPorts.get(i).getName();
+                //arrayPortsLat[i] = listOfPorts.get(i).getLatitude();
+                //arrayPortsLon[i] = listOfPorts.get(i).getLongitude();
+            }
+
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
+
+        dialogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                builder.setTitle("Selecciona un destino");
+                builder.setItems(arrayPortsNames, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int item) {
+                        // Do something with the selection
+                        //centerMapInPosition(myGoogleMap, arrayPortsLat[item], arrayPortsLon[item]);
+                        Port port = listOfPorts.get(item);
+                        Intent intent = new Intent(MapActivity.this, ShipsListActivity.class);
+                        intent.putExtra("marker_title", port.getName());
+                        startActivity(intent);
+                    }
+                });
+                AlertDialog alert = builder.create();
+                alert.show();
+            }
+        });
+
     }
 
     private void initializeMap() {
