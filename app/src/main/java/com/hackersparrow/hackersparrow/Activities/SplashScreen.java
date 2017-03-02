@@ -47,10 +47,10 @@ public class SplashScreen extends Activity {
                         sleep(100);
                         waited += 100;
                     }
-                    Intent intent = new Intent(SplashScreen.this,
-                            MapActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                    startActivity(intent);
+                    //Intent intent = new Intent(SplashScreen.this,
+                    //        MapActivity.class);
+                    //intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    //startActivity(intent);
                     SplashScreen.this.finish();
                 } catch (InterruptedException e) {
                     // do nothing

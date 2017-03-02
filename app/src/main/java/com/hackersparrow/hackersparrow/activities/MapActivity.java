@@ -58,6 +58,11 @@ public class MapActivity extends AppCompatActivity implements GoogleMap.OnInfoWi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
+        Intent intent = new Intent(MapActivity.this,
+                SplashScreen.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        startActivity(intent);
+
         builder = new AlertDialog.Builder(this);
 
         ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#0096C8"));
