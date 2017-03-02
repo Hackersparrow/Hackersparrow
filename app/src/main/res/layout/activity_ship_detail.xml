@@ -7,7 +7,288 @@
     android:orientation="vertical"
     tools:context="com.hackersparrow.hackersparrow.activities.ShipDetailActivity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@color/cardview_dark_background"
+        android:scaleType="fitXY"
+        />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            >
+
+            <TextView
+                android:text="Características"
+                android:id="@+id/activity_ship_detail___characteristics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:layout_margin="5dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#5dbbda"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_margin="4dp"
+                    android:padding="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/patron"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:layout_margin="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/pasajeros"
+                    android:layout_weight="1.1"/>
+
+                <ImageView
+                    android:layout_margin="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/pasajeros"
+                    android:layout_weight="1.35"/>
+
+                <ImageView
+                    android:layout_margin="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/cabina"
+                    android:layout_weight="1.1"/>
+
+                <ImageView
+                    android:layout_margin="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/tamano"
+                    android:layout_weight="1.1"/>
+
+                <ImageView
+                    android:layout_margin="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/wc"
+                    android:layout_weight="1.1"/>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:textSize="10dp"
+                    android:id="@+id/row_ship___ship_patron"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/patron"
+                    android:layout_weight="1"
+                    android:text="Obligatorio"/>
+
+                <TextView
+                    android:textSize="10dp"
+                    android:id="@+id/row_ship___ship_capability"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/pasajeros"
+                    android:text="8+2"
+                    android:layout_weight="1.1"/>
+
+                <TextView
+                    android:textSize="10dp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:layout_margin="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/cabina"
+                    android:text="-"
+                    android:layout_weight="1.1"/>
+
+                <TextView
+                    android:textSize="10dp"
+                    android:id="@+id/row_ship___ship_meters"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:layout_margin="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/tamano"
+                    android:text="10.4"
+                    android:layout_weight="1.1"/>
+
+                <TextView
+                    android:textSize="10dp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:layout_margin="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/wc"
+                    android:text="-"
+                    android:layout_weight="1.1"/>
+
+
+            </LinearLayout>
+            <FrameLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#5dbbda"
+                ></FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                >
+                <TextView
+                    android:text="Equipamiento"
+                    android:id="@+id/activity_ship_detail___equipment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:layout_margin="5dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#5dbbda"
+                    />
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+
+            </LinearLayout>
+            <FrameLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#5dbbda"
+                ></FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                >
+                <TextView
+                    android:text="Especificaciones"
+                    android:id="@+id/activity_ship_detail___specifications"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:layout_margin="5dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#5dbbda"
+                    />
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+
+            </LinearLayout>
+            <FrameLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#5dbbda"
+                ></FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                >
+                <TextView
+                    android:text="Extras Obligatorios"
+                    android:id="@+id/activity_ship_detail___obligatory_extras"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:layout_margin="5dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#5dbbda"
+                    />
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#5dbbda"
+                ></FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                >
+                <TextView
+                    android:text="Extras Opcionales"
+                    android:id="@+id/activity_ship_detail___opcional_extras"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:layout_margin="5dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#5dbbda"
+                    />
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 
 </LinearLayout>
+
