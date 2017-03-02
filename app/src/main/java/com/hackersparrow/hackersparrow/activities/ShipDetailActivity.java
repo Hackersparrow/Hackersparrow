@@ -76,6 +76,7 @@ public class ShipDetailActivity extends AppCompatActivity {
 
         try {
             Ship shipDetail = parserXML.get();
+            shipDetail.setId(ship.getId());
 
             titleText.setText(shipDetail.getName());
             SliderLayout sliderShow = (SliderLayout) findViewById(R.id.image_slider);
@@ -85,7 +86,7 @@ public class ShipDetailActivity extends AppCompatActivity {
                 textSliderView.image(url);
                 sliderShow.addSlider(textSliderView);
             }
-            System.out.println("PATRON: " + shipDetail.getPatron());
+            //System.out.println("PATRON: " + shipDetail.getPatron());
             shipPatron.setText(shipDetail.getPatron());
             shipCapability.setText(shipDetail.getCapability());
             shipMeters.setText(shipDetail.getMeters());
