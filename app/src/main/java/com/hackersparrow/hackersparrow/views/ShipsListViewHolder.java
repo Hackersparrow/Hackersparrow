@@ -18,6 +18,9 @@ public class ShipsListViewHolder extends RecyclerView.ViewHolder{
     private TextView shipName;
     private TextView shipCapability;
     private TextView shipMeters;
+    private TextView shipRooms;
+    private TextView shipType;
+    private TextView shipPrice;
 
     public ShipsListViewHolder(View itemView) {
         super(itemView);
@@ -26,6 +29,9 @@ public class ShipsListViewHolder extends RecyclerView.ViewHolder{
         shipCapability = (TextView) itemView.findViewById(R.id.row_ship___ship_capability);
         shipMeters = (TextView) itemView.findViewById(R.id.row_ship___ship_meters);
         shipPatron = (TextView) itemView.findViewById(R.id.row_ship___ship_patron);
+        shipRooms = (TextView) itemView.findViewById(R.id.row_ship___ship_rooms);
+        shipType = (TextView) itemView.findViewById(R.id.row_ship___ship_type);
+        shipPrice = (TextView) itemView.findViewById(R.id.row_ship___ship_price);
     }
 
     public Ship getShip() {
@@ -34,11 +40,14 @@ public class ShipsListViewHolder extends RecyclerView.ViewHolder{
 
     public void setShip(Ship ship) {
         this.ship = ship;
+        Picasso.with(itemView.getContext()).load(ship.getImgURL()).into(shipImage);
         shipPatron.setText(ship.getPatron());
         shipName.setText(ship.getName());
         shipCapability.setText(ship.getCapability());
         shipMeters.setText("" + ship.getMeters());
-        Picasso.with(itemView.getContext()).load(ship.getImgURL()).into(shipImage);
+        shipRooms.setText(ship.getRooms());
+        shipType.setText(ship.getType());
+        shipPrice.setText(ship.getPrice());
     }
 
 }

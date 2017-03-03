@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_user_info"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0096C8"
+    android:gravity="center_horizontal"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.hackersparrow.hackersparrow.activities.UserInfoActivity">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Nombre"
+        android:textColor="#FFF"
+        android:textColorHint="#CCC"
+        android:backgroundTint="#fff"
+        android:textCursorDrawable="@drawable/custom_cursor"
+        android:ems="10"
+        android:layout_margin="20dp"
+        android:id="@+id/info_name" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:textColor="#FFF"
+        android:textColorHint="#CCC"
+        android:hint="Direccion de correo"
+        android:backgroundTint="#fff"
+        android:textCursorDrawable="@drawable/custom_cursor"
+        android:layout_margin="20dp"
+        android:id="@+id/info_email" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:textColor="#FFF"
+        android:textColorHint="#CCC"
+        android:hint="Teléfono"
+        android:backgroundTint="#fff"
+        android:textCursorDrawable="@drawable/custom_cursor"
+        android:ems="10"
+        android:layout_margin="20dp"
+        android:id="@+id/info_phone" />
+
+    <Button
+        android:text="Enviar datos"
+        android:layout_margin="20dp"
+        android:padding="10dp"
+        android:textColor="#FFF"
+        android:background="@drawable/button_borders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/info_send_button"/>
+</LinearLayout>

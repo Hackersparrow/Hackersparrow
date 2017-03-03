@@ -1,6 +1,9 @@
 package com.hackersparrow.hackersparrow.model;
 
-public class Ship {
+import java.io.Serializable;
+import java.util.List;
+
+public class Ship implements Serializable {
     /*
     <barco id="59">
         <img>http://www.spanishcharters.com/imagenes/barcos/59/20-exterior_04-g.png</img>
@@ -18,6 +21,46 @@ public class Ship {
     private String type;
     private String capability;
     private String meters;
+    private String rooms;
+    private String wc;
+    private String price;
+    private String especifications;
+    private String extras;
+    private List<String> detailImages;
+    private String equip;
+    private String optionalExtras;
+
+    public String getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(String rooms) {
+        this.rooms = rooms;
+    }
+
+    public String getWc() {
+        return wc;
+    }
+
+    public void setWc(String wc) {
+        this.wc = wc;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public List<String> getDetailImages() {
+        return detailImages;
+    }
+
+    public void setDetailImages(List<String> detailImages) {
+        this.detailImages = detailImages;
+    }
 
     public String getId() {
         return id;
@@ -73,5 +116,37 @@ public class Ship {
 
     public void setMeters(String meters) {
         this.meters = meters;
+    }
+
+    public void setEspecifications(String especifications) {
+        this.especifications = especifications;
+    }
+
+    public String getEspecifications() {
+        return especifications;
+    }
+
+    public void setExtras(String extras) {
+        this.extras = extras;
+    }
+
+    public String getExtras() {
+        return extras;
+    }
+
+    public void setEquip(String equip) {
+        this.equip = equip;
+    }
+
+    public String getEquip() {
+        return equip;
+    }
+
+    public void setOptionalExtras(String optionalExtras) {
+        this.optionalExtras = optionalExtras;
+    }
+
+    public String getOptionalExtras() {
+        return optionalExtras;
     }
 }
