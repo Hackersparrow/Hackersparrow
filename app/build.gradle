@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "com.hackersparrow.hackersparrow"
-        minSdkVersion 14
+        minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
         versionName "0.2.1"
@@ -36,4 +36,5 @@ dependencies {
     compile "com.android.support:support-v4:+"
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.daimajia.slider:library:1.1.5@aar'
+    compile 'net.bohush.geometricprogressview:geometricprogressview:1.0.0'
 }

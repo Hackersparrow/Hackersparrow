@@ -2,6 +2,7 @@ package com.hackersparrow.hackersparrow.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.view.Window;
@@ -9,6 +10,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import com.hackersparrow.hackersparrow.R;
+
+import net.bohush.geometricprogressview.GeometricProgressView;
 
 public class SplashScreen extends Activity {
     public static Activity maps;
@@ -27,6 +30,12 @@ public class SplashScreen extends Activity {
         StartAnimations();
     }
     private void StartAnimations() {
+        GeometricProgressView progressView = (GeometricProgressView) findViewById(R.id.progressView);
+        progressView.setType(GeometricProgressView.TYPE.KITE);
+        progressView.setNumberOfAngles(15);
+        progressView.setColor(Color.parseColor("#0096C8"));
+        progressView.setDuration(1200);
+
         Animation anim = AnimationUtils.loadAnimation(this, R.anim.alpha);
         anim.reset();
         LinearLayout l=(LinearLayout) findViewById(R.id.lin_lay);
@@ -63,6 +72,7 @@ public class SplashScreen extends Activity {
             }
         };
         splashTread.start();
+
 
     }
 
