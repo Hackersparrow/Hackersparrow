@@ -1,9 +1,12 @@
 package com.hackersparrow.hackersparrow.activities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.animation.Animation;
@@ -57,6 +60,10 @@ public class SplashScreen extends Activity {
                     while (waited < 5000) {
                         sleep(100);
                         waited += 100;
+                        if (!isNetworkAvailable(getBaseContext())){
+                            waited = 0;
+                        }
+
                     }
                     //Intent intent = new Intent(SplashScreen.this,
                     //        MapActivity.class);
@@ -75,5 +82,10 @@ public class SplashScreen extends Activity {
 
 
     }
-
+    public static boolean isNetworkAvailable(Context context) {
+        ConnectivityManager cm = (ConnectivityManager)
+                context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo info = cm.getActiveNetworkInfo();
+        return info != null && info.isConnected() && info.isAvailable();
+    }
 }
