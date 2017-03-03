@@ -7,12 +7,16 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -134,7 +138,7 @@ public class MapActivity extends AppCompatActivity implements GoogleMap.OnInfoWi
 
     private void setupMap(GoogleMap googleMap) {
         myGoogleMap = googleMap;
-        centerMapInPosition(googleMap, 36.7166667, -4.4166667);
+        //centerMapInPosition(googleMap, 36.7166667, -4.4166667);
         //TODO 1: Esto hay que terminarlo, verificar que cuando cargue el mapa se cierra el splash
         googleMap.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
             @Override
@@ -154,6 +158,22 @@ public class MapActivity extends AppCompatActivity implements GoogleMap.OnInfoWi
             return;
         }
         googleMap.setMyLocationEnabled(true);
+        LocationManager locationManager = (LocationManager)this.getSystemService(LOCATION_SERVICE);
+        Criteria criteria = new Criteria();
+        criteria.setAccuracy(Criteria.ACCURACY_COARSE);
+        String bestProvider= locationManager.getBestProvider(criteria, true);
+        Location loc = locationManager.getLastKnownLocation(bestProvider);
+
+        for (int i = 0; i < listOfPorts.size(); i++) {
+            Location portLocation = new Location("Port " + i);
+            portLocation.setLatitude(listOfPorts.get(i).getLatitude());
+            portLocation.setLongitude(listOfPorts.get(i).getLongitude());
+            float distance = loc.distanceTo(portLocation);
+            Log.d("Distancia puertos",""+ listOfPorts.get(i).getName()+": " + distance);
+        }
+
+
+        centerMapInPosition(googleMap, loc.getLatitude(),loc.getLongitude());
         myGoogleMap.setOnInfoWindowClickListener(this);
     }
 
