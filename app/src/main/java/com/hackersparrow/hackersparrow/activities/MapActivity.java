@@ -163,17 +163,27 @@ public class MapActivity extends AppCompatActivity implements GoogleMap.OnInfoWi
         criteria.setAccuracy(Criteria.ACCURACY_COARSE);
         String bestProvider= locationManager.getBestProvider(criteria, true);
         Location loc = locationManager.getLastKnownLocation(bestProvider);
-
+        float min=0;
+        Location minLocation = new Location("MinLocation");
         for (int i = 0; i < listOfPorts.size(); i++) {
+
             Location portLocation = new Location("Port " + i);
             portLocation.setLatitude(listOfPorts.get(i).getLatitude());
             portLocation.setLongitude(listOfPorts.get(i).getLongitude());
             float distance = loc.distanceTo(portLocation);
             Log.d("Distancia puertos",""+ listOfPorts.get(i).getName()+": " + distance);
+            if(min==0)
+            {
+                minLocation=portLocation;
+                min=distance;
+            }else if(distance<min){
+                min=distance;
+                minLocation=portLocation;
+            }
         }
 
 
-        centerMapInPosition(googleMap, loc.getLatitude(),loc.getLongitude());
+        centerMapInPosition(googleMap, minLocation.getLatitude(),minLocation.getLongitude());
         myGoogleMap.setOnInfoWindowClickListener(this);
     }
 
