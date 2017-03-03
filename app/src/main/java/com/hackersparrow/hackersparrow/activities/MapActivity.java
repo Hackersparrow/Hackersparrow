@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.location.Criteria;
 import android.location.Location;
@@ -17,6 +18,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -27,6 +29,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.hackersparrow.hackersparrow.R;
 import com.hackersparrow.hackersparrow.model.Port;
@@ -181,9 +184,21 @@ public class MapActivity extends AppCompatActivity implements GoogleMap.OnInfoWi
                 minLocation=portLocation;
             }
         }
+        LatLng latLng1 = new LatLng( loc.getLatitude(),loc.getLongitude());
+        LatLng latLng2 = new LatLng(minLocation.getLatitude(),minLocation.getLongitude());
 
+        LatLngBounds.Builder builder = new LatLngBounds.Builder();
+        builder.include(latLng1);
+        builder.include(latLng2);
+        LatLngBounds bounds = builder.build();
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+        int height = size.y;
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, width,height ,200));
 
-        centerMapInPosition(googleMap, minLocation.getLatitude(),minLocation.getLongitude());
+        //centerMapInPosition(googleMap, minLocation.getLatitude(),minLocation.getLongitude());
         myGoogleMap.setOnInfoWindowClickListener(this);
     }
 
