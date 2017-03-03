@@ -42,33 +42,32 @@ public class ShipsParserXML extends AsyncTask<String, Object, List<Ship>> {
             // Locate the Tag Name
             nodeList = doc.getElementsByTagName("barco");
 
+            for (int temp = 0; temp < nodeList.getLength(); temp++) {
+                Node nNode = nodeList.item(temp);
+
+                Ship newShip = new Ship();
+
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element eElement = (Element) nNode;
+                    newShip.setId(eElement.getAttribute("id"));
+                    newShip.setImgURL(getNode("img", eElement));
+                    newShip.setName(getNode("nombre", eElement));
+                    newShip.setType(getNode("tipo", eElement));
+                    newShip.setPatron(getNode("patron", eElement));
+                    newShip.setCapability(getNode("pasajeros", eElement));
+                    newShip.setMeters(getNode("eslora", eElement));
+                    newShip.setType(getNode("tipo", eElement));
+                    newShip.setRooms(getNode("cabinas", eElement));
+                    newShip.setPrice(getNode("precio", eElement));
+
+                }
+                shipList.add(newShip);
+            }
+
         } catch (Exception e) {
             Log.e("Error", e.getMessage());
             e.printStackTrace();
         }
-
-        for (int temp = 0; temp < nodeList.getLength(); temp++) {
-            Node nNode = nodeList.item(temp);
-
-            Ship newShip = new Ship();
-
-            if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-                Element eElement = (Element) nNode;
-                newShip.setId(eElement.getAttribute("id"));
-                newShip.setImgURL(getNode("img", eElement));
-                newShip.setName(getNode("nombre", eElement));
-                newShip.setType(getNode("tipo", eElement));
-                newShip.setPatron(getNode("patron", eElement));
-                newShip.setCapability(getNode("pasajeros", eElement));
-                newShip.setMeters(getNode("eslora", eElement));
-                newShip.setType(getNode("tipo", eElement));
-                newShip.setRooms(getNode("cabinas", eElement));
-                newShip.setPrice(getNode("precio", eElement));
-
-            }
-            shipList.add(newShip);
-        }
-
         return shipList;
     }
 

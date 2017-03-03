@@ -45,7 +45,7 @@ public class ShipDetailParserXML extends AsyncTask<String, Object, Ship> {
             Log.e("Error", e.getMessage());
             e.printStackTrace();
         }
-        showTestInfo(newShip);
+        //showTestInfo(newShip);
         return newShip;
     }
 
