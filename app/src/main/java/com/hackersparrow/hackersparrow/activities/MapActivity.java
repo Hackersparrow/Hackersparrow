@@ -1,7 +1,6 @@
 package com.hackersparrow.hackersparrow.activities;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -37,8 +36,6 @@ import com.hackersparrow.hackersparrow.utils.MapPinsAdder;
 import com.hackersparrow.hackersparrow.utils.PortsParserXML;
 import com.hackersparrow.hackersparrow.utils.Utils;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -270,7 +267,7 @@ public class MapActivity extends AppCompatActivity implements GoogleMap.OnInfoWi
     public void onInfoWindowClick(Marker marker) {
         Intent intent = new Intent(MapActivity.this,
                 ShipsListActivity.class);
-        intent.putExtra("marker_title", marker.getTitle());
+        intent.putExtra("port", marker.getTitle());
         startActivity(intent);
     }
 

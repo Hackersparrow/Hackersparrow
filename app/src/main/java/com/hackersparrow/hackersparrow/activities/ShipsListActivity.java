@@ -9,11 +9,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.google.android.gms.maps.model.Marker;
 import com.hackersparrow.hackersparrow.R;
 import com.hackersparrow.hackersparrow.adapters.ShipsAdapter;
 import com.hackersparrow.hackersparrow.model.Ship;
 import com.hackersparrow.hackersparrow.utils.ShipsParserXML;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
