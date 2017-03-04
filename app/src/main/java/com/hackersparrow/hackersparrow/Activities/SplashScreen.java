@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hackersparrow.hackersparrow.R;
+import com.hackersparrow.hackersparrow.utils.NetworkChecker;
 
 import net.bohush.geometricprogressview.GeometricProgressView;
 
@@ -24,6 +25,7 @@ import java.sql.SQLOutput;
 
 public class SplashScreen extends Activity {
     public static Activity maps;
+    private NetworkChecker networkChecker = new NetworkChecker();
     private TextView errorText;
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
@@ -65,13 +67,14 @@ public class SplashScreen extends Activity {
             @Override
             public void run() {
                 try {
+                    boolean tryReconnect = false;
                     int waited = 0;
                     int noConnectionTotal = 0;
                     // Splash screen pause time
                     while (waited < 4000) {
                         sleep(100);
                         waited += 100;
-                        if (!isNetworkAvailable(getBaseContext())){
+                        if (!networkChecker.isNetworkAvailable(getBaseContext())){
                             noConnectionTotal = noConnectionTotal + 100;
                             waited = 0;
                             if (noConnectionTotal >= 10000){
@@ -88,19 +91,21 @@ public class SplashScreen extends Activity {
                                     }
                                 });
                                 noConnectionTotal = 0;
+                                tryReconnect = true;
                             }
                         }
-
                     }
-                    //Intent intent = new Intent(SplashScreen.this,
-                    //        MapActivity.class);
-                    //intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                    //startActivity(intent);
-                    //SplashScreen.this.finish();
+                    if (tryReconnect){
+                        Intent intent = new Intent(SplashScreen.this, MapActivity.class);
+                        intent.putExtra("rc", true);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent);
+                    }else{
+                        SplashScreen.this.finish();
+                    }
+
                 } catch (InterruptedException e) {
                     // do nothing
-                } finally {
-                    SplashScreen.this.finish();
                 }
 
             }
@@ -109,10 +114,5 @@ public class SplashScreen extends Activity {
 
 
     }
-    public static boolean isNetworkAvailable(Context context) {
-        ConnectivityManager cm = (ConnectivityManager)
-                context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo info = cm.getActiveNetworkInfo();
-        return info != null && info.isConnected() && info.isAvailable();
-    }
+
 }
