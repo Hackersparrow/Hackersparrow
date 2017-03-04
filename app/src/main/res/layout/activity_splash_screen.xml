@@ -2,10 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="#303030"
     android:id="@+id/lin_lay"
     android:gravity="center"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <pl.droidsonroids.gif.GifTextView
         android:layout_width="match_parent"
@@ -13,6 +14,17 @@
         android:background="@drawable/splash"
         android:layout_marginTop="80dp"
         android:layout_weight="10"
+        />
+
+    <TextView
+        android:visibility="invisible"
+        android:id="@+id/splash_error_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Error de conexión. Reintentando..."
+        android:textColor="#F00"
+        android:gravity="center"
         />
 
     <net.bohush.geometricprogressview.GeometricProgressView

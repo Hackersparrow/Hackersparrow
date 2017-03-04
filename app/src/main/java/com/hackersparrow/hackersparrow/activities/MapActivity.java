@@ -33,6 +33,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.hackersparrow.hackersparrow.R;
 import com.hackersparrow.hackersparrow.model.Port;
 import com.hackersparrow.hackersparrow.utils.MapPinsAdder;
+import com.hackersparrow.hackersparrow.utils.NetworkChecker;
 import com.hackersparrow.hackersparrow.utils.PortsParserXML;
 import com.hackersparrow.hackersparrow.utils.Utils;
 
@@ -56,16 +57,36 @@ public class MapActivity extends AppCompatActivity implements GoogleMap.OnInfoWi
     private PortsParserXML xmlParser = new PortsParserXML();
     private ImageView dialogButton;
     private AlertDialog.Builder builder;
+    private NetworkChecker networkChecker = new NetworkChecker();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
-        Intent intent = new Intent(MapActivity.this,
-                SplashScreen.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        startActivity(intent);
+        Intent reconnectIntent = getIntent();
+        boolean reconnected = false;
+        if (reconnectIntent == null){
+            // keep app flow
+        }else{
+            try {
+                reconnected = reconnectIntent.getExtras().getBoolean("rc");
+            }catch (Exception e){
+                Log.d("CONNECTION ERROR", "RECONNECTED EXTRA IS NULL");
+            }
+
+            if (reconnected){
+                //SplashScreen.maps.finish();
+            }else{
+                Intent intent = new Intent(MapActivity.this, SplashScreen.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
+            }
+        }
+
+        if (!networkChecker.isNetworkAvailable(getBaseContext())){
+            this.finish();
+        }
 
         builder = new AlertDialog.Builder(this);
 

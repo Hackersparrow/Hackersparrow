@@ -31,43 +31,46 @@ public class PortsParserXML extends AsyncTask<String, Object, List<Port>> {
 
     @Override
     protected List<Port> doInBackground(String... Url) {
-        try {
-            URL url = new URL(Url[0]);
-            DocumentBuilderFactory dbf = DocumentBuilderFactory
-                    .newInstance();
-            DocumentBuilder db = dbf.newDocumentBuilder();
-            // Download the XML file
-            Document doc = db.parse(new InputSource(url.openStream()));
-            doc.getDocumentElement().normalize();
-            // Locate the Tag Name
-            nodeList = doc.getElementsByTagName("destino");
+        if (Url[0]==null){
+            return portList;
+        }else {
+            try {
+                URL url = new URL(Url[0]);
+                DocumentBuilderFactory dbf = DocumentBuilderFactory
+                        .newInstance();
+                DocumentBuilder db = dbf.newDocumentBuilder();
+                // Download the XML file
+                Document doc = db.parse(new InputSource(url.openStream()));
+                doc.getDocumentElement().normalize();
+                // Locate the Tag Name
+                nodeList = doc.getElementsByTagName("destino");
 
-        } catch (Exception e) {
-            Log.e("Error", e.getMessage());
-            e.printStackTrace();
-        }
+                for (int temp = 0; temp < nodeList.getLength(); temp++) {
+                    Node nNode = nodeList.item(temp);
 
-        for (int temp = 0; temp < nodeList.getLength(); temp++) {
-            Node nNode = nodeList.item(temp);
+                    Port newPort = new Port();
 
-            Port newPort = new Port();
+                    if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                        Element eElement = (Element) nNode;
+                        newPort.setId(eElement.getAttribute("id"));
+                        newPort.setName(getNode("nombre", eElement));
 
-            if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-                Element eElement = (Element) nNode;
-                newPort.setId(eElement.getAttribute("id"));
-                newPort.setName(getNode("nombre", eElement));
+                        String geolocation = getNode("geolocalizacion", eElement);
 
-                String geolocation = getNode("geolocalizacion", eElement);
+                        String[] separated = geolocation.split(",");
+                        newPort.setLatitude(Float.parseFloat(separated[0]));
+                        newPort.setLongitude(Float.parseFloat(separated[1]));
 
-                String[] separated = geolocation.split(",");
-                newPort.setLatitude(Float.parseFloat(separated[0]));
-                newPort.setLongitude(Float.parseFloat(separated[1]));
+                    }
+                    portList.add(newPort);
+                }
 
+            } catch (Exception e) {
+                Log.e("Error", e.getMessage());
+                e.printStackTrace();
             }
-            portList.add(newPort);
+            return portList;
         }
-
-        return portList;
     }
 
     @Override
