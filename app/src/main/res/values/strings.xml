@@ -23,4 +23,7 @@
     <string name="user_info_send">Enviar datos</string>
     <string name="user_info_title">Solicitar información</string>
     <string name="ship_detail_moreInfoButton">Solicitar</string>
+    <string name="radio_week">Una semana</string>
+    <string name="radio_share">Compartir Barco</string>
+    <string name="radio_day">Día</string>
 </resources>

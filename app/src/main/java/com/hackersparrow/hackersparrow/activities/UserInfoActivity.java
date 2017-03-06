@@ -6,9 +6,11 @@ import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -16,6 +18,9 @@ import android.widget.VideoView;
 
 import com.hackersparrow.hackersparrow.R;
 import com.hackersparrow.hackersparrow.model.Ship;
+import com.prolificinteractive.materialcalendarview.CalendarDay;
+import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
+import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
 import java.util.Date;
 
@@ -25,6 +30,7 @@ public class UserInfoActivity extends AppCompatActivity {
     private TextView emailText;
     private TextView phoneText;
     private Button sendButton;
+    private MaterialCalendarView materialCalendarView;
     private Date date = new Date();
 
     @Override
@@ -44,6 +50,7 @@ public class UserInfoActivity extends AppCompatActivity {
         emailText = (TextView) findViewById(R.id.info_email);
         phoneText = (TextView) findViewById(R.id.info_phone);
         sendButton = (Button) findViewById(R.id.info_send_button);
+        materialCalendarView = (MaterialCalendarView) findViewById(R.id.calendarView);
         VideoView videoview = (VideoView) findViewById(R.id.videoView);
         Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.intro);
         videoview.setVideoURI(uri);
@@ -54,6 +61,14 @@ public class UserInfoActivity extends AppCompatActivity {
             }
         });
         videoview.start();
+
+        materialCalendarView.setOnDateChangedListener(new OnDateSelectedListener() {
+            @Override
+            public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
+
+                Log.d("day", "" + materialCalendarView.getSelectedDate());
+            }
+        });
 
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override

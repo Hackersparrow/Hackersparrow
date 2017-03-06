@@ -60,6 +60,39 @@
             android:layout_margin="20dp"
             android:id="@+id/info_phone" />
 
+        <RadioGroup
+            android:layout_margin="20dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <RadioButton
+                android:id="@+id/rb_week"
+                android:text="@string/radio_week"
+                android:textColor="#FFF"
+                android:buttonTint="#FFF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <RadioButton
+                android:id="@+id/rb_share"
+                android:text="@string/radio_share"
+                android:textColor="#FFF"
+                android:buttonTint="#FFF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <RadioButton
+                android:id="@+id/rb_day"
+                android:text="@string/radio_day"
+                android:textColor="#FFF"
+                android:buttonTint="#FFF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RadioGroup>
+
         <com.prolificinteractive.materialcalendarview.MaterialCalendarView
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_margin="20dp"
