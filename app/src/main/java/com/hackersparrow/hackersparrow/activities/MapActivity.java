@@ -122,7 +122,7 @@ public class MapActivity extends AppCompatActivity implements GoogleMap.OnInfoWi
         dialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                builder.setTitle("Selecciona un destino");
+                builder.setTitle(R.string.map_destination);
                 builder.setItems(arrayPortsNames, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int item) {
                         // Do something with the selection
@@ -147,7 +147,7 @@ public class MapActivity extends AppCompatActivity implements GoogleMap.OnInfoWi
                 // check if map is created successfully or not
                 if (googleMap == null) {
                     Toast.makeText(getApplicationContext(),
-                            "Sorry! unable to create maps", Toast.LENGTH_SHORT)
+                            R.string.map_create_error, Toast.LENGTH_SHORT)
                             .show();
                 } else {
                     setupMap(googleMap);

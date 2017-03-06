@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:hint="Nombre"
+            android:hint="@string/user_info_name"
             android:textColor="#FFF"
             android:textColorHint="#FFF"
             android:backgroundTint="#fff"
@@ -36,7 +36,7 @@
             android:ems="10"
             android:textColor="#FFF"
             android:textColorHint="#FFF"
-            android:hint="Direccion de correo"
+            android:hint="@string/user_info_email"
             android:backgroundTint="#fff"
             android:textCursorDrawable="@drawable/custom_cursor"
             android:layout_margin="20dp"
@@ -48,7 +48,7 @@
             android:inputType="phone"
             android:textColor="#FFF"
             android:textColorHint="#FFF"
-            android:hint="Teléfono"
+            android:hint="@string/user_info_phone"
             android:backgroundTint="#fff"
             android:textCursorDrawable="@drawable/custom_cursor"
             android:ems="10"
@@ -56,7 +56,7 @@
             android:id="@+id/info_phone" />
 
         <Button
-            android:text="Enviar datos"
+            android:text="@string/user_info_send"
             android:layout_margin="20dp"
             android:padding="10dp"
             android:textColor="#FFF"

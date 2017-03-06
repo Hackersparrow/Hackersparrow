@@ -32,11 +32,10 @@ public class UserInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         final Ship ship = (Ship) intent.getSerializableExtra("selected_ship");
-        //System.out.println(ship.getId() + " " + ship.getName());
 
         ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#0096C8"));
         getSupportActionBar().setBackgroundDrawable(colorDrawable);
-        getSupportActionBar().setTitle("Solicitar información");
+        getSupportActionBar().setTitle(R.string.userInfo_Title);
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.toolbar);
         setContentView(R.layout.activity_user_info);
@@ -64,12 +63,12 @@ public class UserInfoActivity extends AppCompatActivity {
                 String phone = phoneText.getText().toString();
 
                 String snackBarText =
-                        "Datos enviados al server...\n\n"
-                        + "Nombre: " + name + "\n"
-                        + "Email: " + email + "\n"
-                        + "Phone: " + phone + "\n"
-                        + "ShipID: " + ship.getId() + "\n"
-                        + "ShipName: " + ship.getName();
+                        getString(R.string.userInfo_sent_title)
+                        + getString(R.string.userInfo_sent_name) + name + "\n"
+                        + getString(R.string.userInfo_sent_email) + email + "\n"
+                        + getString(R.string.userInfo_sent_phone) + phone + "\n"
+                        + getString(R.string.userInfo_sent_ship_id) + ship.getId() + "\n"
+                        + getString(R.string.userInfo_sent_ship_name) + ship.getName();
 
                 View rootView = findViewById(android.R.id.content);
                 Snackbar mySnackBar = Snackbar.make(rootView, snackBarText, Snackbar. LENGTH_LONG);

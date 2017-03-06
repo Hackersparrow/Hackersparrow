@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:id="@+id/action_bar_title"
-        android:text="Solicitar información"
+        android:text="@string/user_info_title"
         style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
         />
 </LinearLayout>
