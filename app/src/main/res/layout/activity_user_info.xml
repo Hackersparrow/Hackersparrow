@@ -10,6 +10,11 @@
     tools:context="com.hackersparrow.hackersparrow.activities.UserInfoActivity">
 
     <include layout="@layout/background_video" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#800096C8"
+        android:scrollbars="none">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -55,6 +60,23 @@
             android:layout_margin="20dp"
             android:id="@+id/info_phone" />
 
+        <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_margin="20dp"
+            android:layout_gravity="center"
+            android:background="@drawable/button_borders"
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:mcv_arrowColor="#FFF"
+            app:mcv_dateTextAppearance="@style/CustomTextAppearance"
+            app:mcv_headerTextAppearance="@style/HeaderTextAppearance"
+            app:mcv_weekDayTextAppearance="@style/CustomDayTextAppearance"
+            app:mcv_firstDayOfWeek="monday"
+            app:mcv_showOtherDates="decorated_disabled"
+            app:mcv_selectionColor="#FFF"
+            />
+
         <Button
             android:text="@string/user_info_send"
             android:layout_margin="20dp"
@@ -65,4 +87,5 @@
             android:layout_height="wrap_content"
             android:id="@+id/info_send_button"/>
     </LinearLayout>
+    </ScrollView>
 </RelativeLayout>
