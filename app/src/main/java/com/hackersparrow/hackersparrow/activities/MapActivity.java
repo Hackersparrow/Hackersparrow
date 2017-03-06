@@ -183,6 +183,11 @@ public class MapActivity extends AppCompatActivity implements GoogleMap.OnInfoWi
         Criteria criteria = new Criteria();
         criteria.setAccuracy(Criteria.ACCURACY_COARSE);
         String bestProvider= locationManager.getBestProvider(criteria, true);
+
+        //TODO: THIS FIXES CRASH WHEN GPS IS ON, BUT GPS IS NEVER USED
+        bestProvider = "network";
+        //
+
         Location loc = locationManager.getLastKnownLocation(bestProvider);
         float min=0;
         Location minLocation = new Location("MinLocation");
