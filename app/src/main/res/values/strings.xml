@@ -31,4 +31,7 @@
     <string name="detail_mandatory_extras">Extras Obligatorios</string>
     <string name="detail_optional_extras">Extras Opcionales</string>
     <string name="detail_features">Características</string>
+    <string name="info_textarea">Información adicional</string>
+    <string name="info_term">Acepto las condiciones de uso.</string>
+    <string name="info_terms">Condiciones de uso</string>
 </resources>

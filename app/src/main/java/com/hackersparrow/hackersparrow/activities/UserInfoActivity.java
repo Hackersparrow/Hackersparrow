@@ -12,9 +12,11 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -34,7 +36,11 @@ public class UserInfoActivity extends AppCompatActivity {
     private TextView nameText;
     private TextView emailText;
     private TextView phoneText;
+    private ImageView phoneButton;
+    private EditText editText;
     private Button sendButton;
+    private CheckBox checkBox;
+    private TextView termsText;
     private MaterialCalendarView materialCalendarView;
     private RadioGroup radioGroup;
     private Calendar calendar = Calendar.getInstance();
@@ -57,12 +63,17 @@ public class UserInfoActivity extends AppCompatActivity {
         getSupportActionBar().setCustomView(R.layout.toolbar);
         setContentView(R.layout.activity_user_info);
 
+        phoneButton = (ImageView) findViewById(R.id.info_phone_button);
         nameText = (TextView) findViewById(R.id.info_name);
         emailText = (TextView) findViewById(R.id.info_email);
         phoneText = (TextView) findViewById(R.id.info_phone);
+        editText = (EditText) findViewById(R.id.textArea_information);
         sendButton = (Button) findViewById(R.id.info_send_button);
         materialCalendarView = (MaterialCalendarView) findViewById(R.id.calendarView);
         radioGroup = (RadioGroup) findViewById(R.id.radio_group);
+        checkBox = (CheckBox) findViewById(R.id.info_checkbox);
+        termsText = (TextView) findViewById(R.id.info_condition);
+
         VideoView videoview = (VideoView) findViewById(R.id.videoView);
         Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.intro);
         videoview.setVideoURI(uri);
@@ -75,6 +86,24 @@ public class UserInfoActivity extends AppCompatActivity {
         videoview.start();
         materialCalendarView.setDateSelected(calendar, true);
 
+        termsText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = "http://www.spanishcharters.com/condiciones-generales-contratacion.html";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
+
+        phoneButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String phone = "+34952020946";
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
+                startActivity(intent);
+            }
+        });
 
         materialCalendarView.setOnDateChangedListener(new OnDateSelectedListener() {
             @Override
@@ -88,29 +117,42 @@ public class UserInfoActivity extends AppCompatActivity {
             }
         });
 
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (checkBox.isChecked() == true){
+                    sendButton.setTextColor(0xFFFFFFFF);
+                }else{
+                    sendButton.setTextColor(0xFFAAAAAA);
+                }
+            }
+        });
+
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name = nameText.getText().toString();
-                String email = emailText.getText().toString();
-                String phone = phoneText.getText().toString();
+                if (checkBox.isChecked()) {
+                    String name = nameText.getText().toString();
+                    String email = emailText.getText().toString();
+                    String phone = phoneText.getText().toString();
 
-                String snackBarText =
-                        getString(R.string.userInfo_sent_title)
-                        + getString(R.string.userInfo_sent_name) + name + "\n"
-                        + getString(R.string.userInfo_sent_email) + email + "\n"
-                        + getString(R.string.userInfo_sent_phone) + phone + "\n"
-                        + getString(R.string.userInfo_sent_ship_id) + ship.getId() + "\n"
-                        + getString(R.string.userInfo_sent_ship_name) + ship.getName();
+                    String snackBarText =
+                            getString(R.string.userInfo_sent_title)
+                                    + getString(R.string.userInfo_sent_name) + name + "\n"
+                                    + getString(R.string.userInfo_sent_email) + email + "\n"
+                                    + getString(R.string.userInfo_sent_phone) + phone + "\n"
+                                    + getString(R.string.userInfo_sent_ship_id) + ship.getId() + "\n"
+                                    + getString(R.string.userInfo_sent_ship_name) + ship.getName();
 
-                View rootView = findViewById(android.R.id.content);
-                Snackbar mySnackBar = Snackbar.make(rootView, snackBarText, Snackbar. LENGTH_LONG);
+                    View rootView = findViewById(android.R.id.content);
+                    Snackbar mySnackBar = Snackbar.make(rootView, snackBarText, Snackbar.LENGTH_LONG);
 
-                mySnackBar.show();
+                    mySnackBar.show();
 
-                View snackbarView = mySnackBar.getView();
-                TextView textView = (TextView) snackbarView.findViewById(android.support.design.R.id.snackbar_text);
-                textView.setMaxLines(7);
+                    View snackbarView = mySnackBar.getView();
+                    TextView textView = (TextView) snackbarView.findViewById(android.support.design.R.id.snackbar_text);
+                    textView.setMaxLines(7);
+                }
             }
         });
     }
@@ -119,6 +161,9 @@ public class UserInfoActivity extends AppCompatActivity {
         boolean checked = ((RadioButton) view).isChecked();
         CalendarDay firstDay;
         materialCalendarView.setVisibility(View.VISIBLE);
+        editText.setVisibility(View.VISIBLE);
+        checkBox.setVisibility(View.VISIBLE);
+        termsText.setVisibility(View.VISIBLE);
         switch(view.getId()) {
             case R.id.rb_week:
                 if (checked)
