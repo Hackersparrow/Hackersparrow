@@ -39,7 +39,7 @@ public class ShipDetailParserXML extends AsyncTask<String, Object, Ship> {
 
             getImages(newShip, doc, Url);
             getBasicInfo(newShip, doc, Url);
-            getInfo(newShip, doc, Url);
+            //getInfo(newShip, doc, Url);
 
         } catch (Exception e) {
             Log.e("Error", e.getMessage());
@@ -104,17 +104,7 @@ public class ShipDetailParserXML extends AsyncTask<String, Object, Ship> {
                 ship.setMeters(getNode("eslora", eElement));
                 ship.setWc(getNode("wc", eElement));
                 ship.setPrice(getNode("precio", eElement));
-            }
-        }
-    }
 
-    public void getInfo(Ship ship, Document doc, String... Url) {
-        NodeList nodeList = doc.getElementsByTagName("info");
-        for (int temp = 0; temp < nodeList.getLength(); temp++) {
-
-            Node nNode = nodeList.item(temp);
-            if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-                Element eElement = (Element) nNode;
                 String especifications = Html.fromHtml(getNode("especificaciones", eElement)).toString();
 
 
@@ -144,9 +134,21 @@ public class ShipDetailParserXML extends AsyncTask<String, Object, Ship> {
                 optionalExtras = optionalExtras.replace("</li>", "");
                 optionalExtras = optionalExtras.replace("</ul>", "");
                 ship.setOptionalExtras(optionalExtras);
-
             }
         }
     }
+
+    /*public void getInfo(Ship ship, Document doc, String... Url) {
+        NodeList nodeList = doc.getElementsByTagName("info");
+        for (int temp = 0; temp < nodeList.getLength(); temp++) {
+
+            Node nNode = nodeList.item(temp);
+            if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                Element eElement = (Element) nNode;
+
+
+            }
+        }
+    }*/
 
 }

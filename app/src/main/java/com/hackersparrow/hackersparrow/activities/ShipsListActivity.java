@@ -16,6 +16,7 @@ import com.hackersparrow.hackersparrow.utils.ShipsParserXML;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 
 public class ShipsListActivity extends AppCompatActivity {
@@ -40,8 +41,11 @@ public class ShipsListActivity extends AppCompatActivity {
         else {
             getSupportActionBar().show();
         }
-
-        xmlParser.execute("http://spanishcharters.com/api/barcos");
+        if (Locale.getDefault().getLanguage().contentEquals("en")) {
+            xmlParser.execute("http://spanishcharters.com/en/api/barcos");
+        }else{
+            xmlParser.execute("http://spanishcharters.com/es/api/barcos");
+        }
 
         try {
             shipList = xmlParser.get();

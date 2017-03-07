@@ -26,4 +26,9 @@
     <string name="radio_week">Una semana</string>
     <string name="radio_share">Compartir Barco</string>
     <string name="radio_day">Día</string>
+    <string name="detail_equipment">Equipamiento</string>
+    <string name="detail_specifications">Especificaciones</string>
+    <string name="detail_mandatory_extras">Extras Obligatorios</string>
+    <string name="detail_optional_extras">Extras Opcionales</string>
+    <string name="detail_features">Características</string>
 </resources>

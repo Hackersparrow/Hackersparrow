@@ -39,7 +39,7 @@
             >
 
             <TextView
-                android:text="Características"
+                android:text="@string/detail_features"
                 android:id="@+id/activity_ship_detail___characteristics"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -179,7 +179,7 @@
                 android:layout_marginTop="10dp"
                 >
                 <TextView
-                    android:text="Equipamiento"
+                    android:text="@string/detail_equipment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
@@ -211,7 +211,7 @@
                 android:layout_marginTop="10dp"
                 >
                 <TextView
-                    android:text="Especificaciones"
+                    android:text="@string/detail_specifications"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
@@ -243,7 +243,7 @@
                 android:layout_marginTop="10dp"
                 >
                 <TextView
-                    android:text="Extras Obligatorios"
+                    android:text="@string/detail_mandatory_extras"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
@@ -276,7 +276,7 @@
                 android:layout_marginTop="10dp"
                 >
                 <TextView
-                    android:text="Extras Opcionales"
+                    android:text="@string/detail_optional_extras"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
