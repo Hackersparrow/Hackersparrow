@@ -116,11 +116,50 @@
             app:mcv_selectionColor="#FFF"
             />
 
+        <EditText
+            android:visibility="gone"
+            android:padding="10dp"
+            android:id="@+id/textArea_information"
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_borders"
+            android:gravity="top|left"
+            android:inputType="textMultiLine"
+            android:overScrollMode="always"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical"
+            android:lines="6"
+            android:scrollHorizontally="false"
+            android:textColor="#FFF"
+            android:textColorHint="#FFF"
+            android:hint="@string/info_textarea"
+            android:textCursorDrawable="@drawable/custom_cursor"/>
+
+        <CheckBox
+            android:id="@+id/info_checkbox"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:buttonTint="#FFF"
+            android:text="@string/info_term"
+            android:textColor="#FFF"/>
+        <TextView
+            android:id="@+id/info_condition"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#FFF"
+            android:textStyle="bold"
+            android:text="@string/info_terms"/>
+
         <Button
             android:text="@string/user_info_send"
             android:layout_margin="20dp"
             android:padding="10dp"
-            android:textColor="#FFF"
+            android:textColor="#AAA"
             android:background="@drawable/button_borders"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

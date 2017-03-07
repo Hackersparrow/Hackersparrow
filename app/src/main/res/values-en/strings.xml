@@ -31,4 +31,7 @@
     <string name="detail_mandatory_extras">Mandatory Extras</string>
     <string name="detail_optional_extras">Optional Extras</string>
     <string name="detail_features">Features</string>
+    <string name="info_textarea">Additional Information</string>
+    <string name="info_term">I Agree with the terms</string>
+    <string name="info_terms">Term conditions (Spanish only)</string>
 </resources>
