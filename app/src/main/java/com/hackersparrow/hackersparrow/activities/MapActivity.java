@@ -186,9 +186,14 @@ public class MapActivity extends AppCompatActivity implements GoogleMap.OnInfoWi
 
         //TODO: THIS FIXES CRASH WHEN GPS IS ON, BUT GPS IS NEVER USED
         bestProvider = "network";
+        Log.d("PROVIDER", bestProvider);
         //
 
         Location loc = locationManager.getLastKnownLocation(bestProvider);
+        if (loc == null){
+            loc.setLatitude(0.0);
+            loc.setLongitude(0.0);
+        }
         float min=0;
         Location minLocation = new Location("MinLocation");
         for (int i = 0; i < listOfPorts.size(); i++) {
