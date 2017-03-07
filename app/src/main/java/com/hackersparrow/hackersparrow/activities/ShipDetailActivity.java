@@ -6,10 +6,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.daimajia.slider.library.SliderLayout;
@@ -18,6 +15,7 @@ import com.hackersparrow.hackersparrow.R;
 import com.hackersparrow.hackersparrow.model.Ship;
 import com.hackersparrow.hackersparrow.utils.ShipDetailParserXML;
 
+import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 
 public class ShipDetailActivity extends AppCompatActivity {
@@ -27,7 +25,7 @@ public class ShipDetailActivity extends AppCompatActivity {
     // WHERE xx IS THE SHIP IP
 
     ShipDetailParserXML parserXML = new ShipDetailParserXML();
-    final static String detailUrl = "http://www.spanishcharters.com/api/barco/id:";
+    String detailUrl = "http://www.spanishcharters.com/api/barco/id:";
     private SliderLayout sliderShow;
     TextSliderView textSliderView = new TextSliderView(this);
     private Ship shipDetail;
@@ -70,6 +68,12 @@ public class ShipDetailActivity extends AppCompatActivity {
         shipOptionalExtras = (TextView) findViewById(R.id.activity_ship_detail___opcional_extras);
         titleText = (TextView) findViewById(R.id.detail_bar_title_text);
         titleButton = (TextView) findViewById(R.id.detail_bar_title_button);
+
+        if (Locale.getDefault().getLanguage().contentEquals("en")) {
+            detailUrl = "http://www.spanishcharters.com/en/api/barco/id:";
+        }else{
+            detailUrl = "http://www.spanishcharters.com/es/api/barco/id:";
+        }
 
         parserXML.execute(detailUrl + ship.getId());
 

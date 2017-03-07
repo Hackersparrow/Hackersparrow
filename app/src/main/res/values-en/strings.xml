@@ -26,4 +26,9 @@
     <string name="radio_week">Week</string>
     <string name="radio_share">Share</string>
     <string name="radio_day">Day</string>
+    <string name="detail_equipment">Equipment</string>
+    <string name="detail_specifications">Specifications</string>
+    <string name="detail_mandatory_extras">Mandatory Extras</string>
+    <string name="detail_optional_extras">Optional Extras</string>
+    <string name="detail_features">Features</string>
 </resources>
