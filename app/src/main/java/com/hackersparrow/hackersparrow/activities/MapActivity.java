@@ -56,6 +56,7 @@ public class MapActivity extends AppCompatActivity implements GoogleMap.OnInfoWi
     private float[] arrayPortsLon;
     private PortsParserXML xmlParser = new PortsParserXML();
     private ImageView dialogButton;
+    private ImageView aboutUsImage;
     private AlertDialog.Builder builder;
     private NetworkChecker networkChecker = new NetworkChecker();
 
@@ -63,6 +64,8 @@ public class MapActivity extends AppCompatActivity implements GoogleMap.OnInfoWi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
+
+
 
         Intent reconnectIntent = getIntent();
         boolean reconnected = false;
@@ -135,6 +138,17 @@ public class MapActivity extends AppCompatActivity implements GoogleMap.OnInfoWi
                 });
                 AlertDialog alert = builder.create();
                 alert.show();
+            }
+        });
+
+        aboutUsImage = (ImageView) findViewById(R.id.about_us_image);
+
+        aboutUsImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(MapActivity.this,AboutUsActivity.class);
+                startActivity(intent);
             }
         });
     }
