@@ -191,8 +191,9 @@ public class MapActivity extends AppCompatActivity implements GoogleMap.OnInfoWi
 
         Location loc = locationManager.getLastKnownLocation(bestProvider);
         if (loc == null){
-            loc.setLatitude(0.0);
-            loc.setLongitude(0.0);
+            loc = new Location("MyLocation");
+            loc.setLatitude(50.3);
+            loc.setLongitude(-5.84);
         }
         float min=0;
         Location minLocation = new Location("MinLocation");
