@@ -1,14 +1,15 @@
 package com.hackersparrow.hackersparrow.activities;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.hackersparrow.hackersparrow.MainActivity;
 import com.hackersparrow.hackersparrow.R;
 
 public class AboutUsActivity extends AppCompatActivity {
@@ -32,6 +33,10 @@ public class AboutUsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#0096C8"));
+        getSupportActionBar().setBackgroundDrawable(colorDrawable);
+        getSupportActionBar().setTitle("About us");
         setContentView(R.layout.activity_about_us);
 
         linkedin_url_saul= (ImageView) findViewById(R.id.card_view_linkedin_saul);
