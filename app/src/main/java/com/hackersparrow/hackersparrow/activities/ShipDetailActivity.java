@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.hackersparrow.hackersparrow.R;
+import com.hackersparrow.hackersparrow.model.Port;
 import com.hackersparrow.hackersparrow.model.Ship;
 import com.hackersparrow.hackersparrow.utils.ShipDetailParserXML;
 
@@ -48,6 +49,7 @@ public class ShipDetailActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         Ship ship = (Ship) intent.getSerializableExtra("ship");
+        final Port port = (Port) intent.getSerializableExtra("port");
 
         ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#0096C8"));
         getSupportActionBar().setBackgroundDrawable(colorDrawable);
@@ -110,6 +112,7 @@ public class ShipDetailActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(ShipDetailActivity.this, UserInfoActivity.class);
                 i.putExtra("selected_ship", shipDetail);
+                i.putExtra("port", port);
                 startActivity(i);
             }
         });

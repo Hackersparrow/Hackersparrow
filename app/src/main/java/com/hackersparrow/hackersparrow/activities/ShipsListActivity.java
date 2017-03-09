@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.hackersparrow.hackersparrow.R;
 import com.hackersparrow.hackersparrow.adapters.ShipsAdapter;
+import com.hackersparrow.hackersparrow.model.Port;
 import com.hackersparrow.hackersparrow.model.Ship;
 import com.hackersparrow.hackersparrow.utils.ShipsParserXML;
 
@@ -25,13 +26,15 @@ public class ShipsListActivity extends AppCompatActivity {
     private List<Ship> shipList = new LinkedList<>();
     private ShipsAdapter adapter;
     private ShipsParserXML xmlParser = new ShipsParserXML();
+    Port myPort = new Port();
+    String myPortName = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         Intent intent = getIntent();
-        String markerTitle = intent.getSerializableExtra("port").toString();
+        myPort = (Port) intent.getSerializableExtra("port");
 
         ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#0096C8"));
         getSupportActionBar().setBackgroundDrawable(colorDrawable);
@@ -55,7 +58,7 @@ public class ShipsListActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        getSupportActionBar().setTitle(markerTitle + " (" +shipList.size() + ")");
+        getSupportActionBar().setTitle(myPort.getName() + " (" +shipList.size() + ")");
 
         setContentView(R.layout.activity_ships_list);
 
@@ -63,7 +66,7 @@ public class ShipsListActivity extends AppCompatActivity {
         shipsRecyclerView = (RecyclerView) findViewById(R.id.ships_lis_recyclerView);
         shipsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        adapter = new ShipsAdapter(shipList, this);
+        adapter = new ShipsAdapter(shipList, this, myPort);
         shipsRecyclerView.setAdapter(adapter);
     }
 }

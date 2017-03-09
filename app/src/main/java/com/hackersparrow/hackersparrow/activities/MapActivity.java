@@ -132,7 +132,7 @@ public class MapActivity extends AppCompatActivity implements GoogleMap.OnInfoWi
                         //centerMapInPosition(myGoogleMap, arrayPortsLat[item], arrayPortsLon[item]);
                         Port port = listOfPorts.get(item);
                         Intent intent = new Intent(MapActivity.this, ShipsListActivity.class);
-                        intent.putExtra("port", port.getName());
+                        intent.putExtra("port", port);
                         startActivity(intent);
                     }
                 });
@@ -313,7 +313,9 @@ public class MapActivity extends AppCompatActivity implements GoogleMap.OnInfoWi
     public void onInfoWindowClick(Marker marker) {
         Intent intent = new Intent(MapActivity.this,
                 ShipsListActivity.class);
-        intent.putExtra("port", marker.getTitle());
+        Port myPort = new Port();
+        myPort.setName(marker.getTitle());
+        intent.putExtra("port", myPort);
         startActivity(intent);
     }
 
