@@ -238,7 +238,7 @@
                         />
                     <FrameLayout
                         android:layout_width="2dp"
-                        android:layout_height="140dp"
+                        android:layout_height="160dp"
                         android:layout_toRightOf="@id/image_marcos"
                         android:background="#ffffff"
                         android:id="@+id/frame_marcos"

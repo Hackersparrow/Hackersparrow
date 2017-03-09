@@ -51,7 +51,7 @@ public class AboutUsActivity extends AppCompatActivity {
         web_url_marcos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://www.marcosvaldi.com"));
+                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("http://marcosvaldi.com"));
                 startActivity(viewIntent);
             }
         });
@@ -140,7 +140,7 @@ public class AboutUsActivity extends AppCompatActivity {
         }); linkedin_url_alex.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://www.linkedin.com/in/alejandrorodriguezsanz"));
+                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://www.linkedin.com/in/alejandro-rodríguez-sanz"));
                 startActivity(viewIntent);
 
             }
