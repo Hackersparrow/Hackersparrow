@@ -34,4 +34,16 @@
     <string name="info_textarea">Información adicional</string>
     <string name="info_term">Acepto las condiciones de uso.</string>
     <string name="info_terms">Condiciones de uso</string>
+    <string name="linkedin_saul">https://www.linkedin.com/in/saulmarinquerido</string>
+    <string name="github_saul">https://github.com/smappdev</string>
+    <string name="linkedin_matias">https://www.linkedin.com/in/josematiasalcaidejimenez</string>
+    <string name="github_matias">https://github.com/jmajyo</string>
+    <string name="web_marcos">https://www.marcosvaldi.com</string>
+    <string name="github_marcos">https://github.com/markinhos3</string>
+    <string name="linkedin_adri">https://www.linkedin.com/in/adrian-diaz-mancera</string>
+    <string name="github_adri">https://github.com/adriidm</string>
+    <string name="linkedin_alex">https://www.linkedin.com/in/alejandroreodriguezsanz</string>
+    <string name="github_alex">https://github.com/alexkassabian</string>
+    <string name="linkedin_alberto">https://www.linkedin.com/in/alberto-martinez-quintana-b1306b130</string>
+    <string name="github_alberto">https://github.com/Alber81</string>
 </resources>
