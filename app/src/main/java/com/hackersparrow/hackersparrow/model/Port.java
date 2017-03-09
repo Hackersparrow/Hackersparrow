@@ -2,7 +2,9 @@ package com.hackersparrow.hackersparrow.model;
 
 import com.hackersparrow.hackersparrow.utils.MapPinsAdder;
 
-public class Port implements MapPinsAdder.MapPinnable<Port>{
+import java.io.Serializable;
+
+public class Port implements MapPinsAdder.MapPinnable<Port>, Serializable{
     private String id;
     private String name;
     private float latitude;

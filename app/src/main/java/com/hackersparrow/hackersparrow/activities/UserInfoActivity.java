@@ -1,5 +1,6 @@
 package com.hackersparrow.hackersparrow.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -22,7 +23,15 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.VideoView;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.hackersparrow.hackersparrow.R;
+import com.hackersparrow.hackersparrow.model.Port;
 import com.hackersparrow.hackersparrow.model.Ship;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
@@ -30,6 +39,8 @@ import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class UserInfoActivity extends AppCompatActivity {
 
@@ -46,6 +57,8 @@ public class UserInfoActivity extends AppCompatActivity {
     private Calendar calendar = Calendar.getInstance();
     CalendarDay selectedDate = null;
     private int activeButton = 0;
+    private String activeButtonText = "";
+    private int activeButtonDuration = 0;
             // 0 > WEEK
             // 1 > SHARE
             // 2 > DAY
@@ -55,6 +68,7 @@ public class UserInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         final Ship ship = (Ship) intent.getSerializableExtra("selected_ship");
+        final Port port = (Port) intent.getSerializableExtra("port");
 
         ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#0096C8"));
         getSupportActionBar().setBackgroundDrawable(colorDrawable);
@@ -135,6 +149,20 @@ public class UserInfoActivity extends AppCompatActivity {
                     String name = nameText.getText().toString();
                     String email = emailText.getText().toString();
                     String phone = phoneText.getText().toString();
+                    String additionalInfo = editText.getText().toString();
+                    String startDate = materialCalendarView.getSelectedDates().get(0).toString();
+
+                    String myStartDate = startDate.substring(startDate.indexOf("{") + 1, startDate.indexOf("}"));
+
+                    String month = myStartDate.substring(myStartDate.indexOf("-") + 1, myStartDate.lastIndexOf("-"));
+                    String correctMonth = String.valueOf((Integer.parseInt(month) + 1));
+
+                    String correctStartDate = myStartDate.replace("-"+month+"-", "-"+correctMonth+"-");
+
+                    Log.d("FECHA", startDate);
+
+
+                    sendPost(view.getContext(), name, email, phone, activeButtonText, correctStartDate, String.valueOf(activeButtonDuration), additionalInfo, ship, port);
 
                     String snackBarText =
                             getString(R.string.userInfo_sent_title)
@@ -168,6 +196,8 @@ public class UserInfoActivity extends AppCompatActivity {
             case R.id.rb_week:
                 if (checked)
                     activeButton = 0;
+                    activeButtonDuration = 7;
+                    activeButtonText = "Una semana";
                     selectedDate = materialCalendarView.getSelectedDate();
                     long ltime = selectedDate.getDate().getTime() + 6*24*60*60*1000;
                     Date end_range_date = new Date(ltime);
@@ -176,6 +206,8 @@ public class UserInfoActivity extends AppCompatActivity {
             case R.id.rb_share:
                 if (checked)
                     activeButton = 1;
+                    activeButtonDuration = 1;
+                    activeButtonText = "Compartir barco";
                     Log.d("OPTION", "" + materialCalendarView.getSelectedDates());
                     firstDay = materialCalendarView.getSelectedDates().get(0);
                     materialCalendarView.clearSelection();
@@ -184,11 +216,54 @@ public class UserInfoActivity extends AppCompatActivity {
             case R.id.rb_day:
                 if (checked)
                     activeButton = 2;
+                    activeButtonDuration = 1;
+                    activeButtonText = "Un día";
                     firstDay = materialCalendarView.getSelectedDates().get(0);
                     materialCalendarView.clearSelection();
                     materialCalendarView.setDateSelected(firstDay, true);
                     break;
         }
+    }
+
+    public void sendPost(Context context, String name, String email, String phone, String reservationType, String startDate, String numberDays, String additionalInfo, final Ship myShip, final Port destination){
+        String URL = "http://www.spanishcharters.com/api/request_info";
+        final String sendName = name;
+        final String sendEmail = email;
+        final String sendPhone = phone;
+        final String sendReservationType = reservationType;
+        final String sendStartDate = startDate;
+        final String sendNumberDays = numberDays;
+        final String sendAdditionalInfo = additionalInfo;
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("REGISTER_USER", "Todo ha ido bien");
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("REGISTER_USER", "Algo ha ido mal" + error);
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> params = new HashMap<String, String>();
+                //params.put("Content-Type","application/json");
+                params.put("name", sendName);
+                params.put("email", sendEmail);
+                params.put("phone", sendPhone);
+                params.put("reservation_type", sendReservationType);
+                params.put("Dias", sendNumberDays);
+                params.put("start_date", sendStartDate);
+                params.put("additional_info", sendAdditionalInfo);
+                params.put("ship", myShip.getName());
+                params.put("destination", destination.getName());
+                return params;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        requestQueue.add(stringRequest);
     }
 
 }
