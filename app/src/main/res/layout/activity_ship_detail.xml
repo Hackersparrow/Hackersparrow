@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.hackersparrow.hackersparrow.activities.ShipDetailActivity">
+    tools:context="com.spanishcharters.spanishcharters.activities.ShipDetailActivity">
 
     <com.daimajia.slider.library.SliderLayout
         android:id="@+id/image_slider"

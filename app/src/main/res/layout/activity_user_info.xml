@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="#290096C8"
     android:gravity="center_horizontal"
-    tools:context="com.hackersparrow.hackersparrow.activities.UserInfoActivity">
+    tools:context="com.spanishcharters.spanishcharters.activities.UserInfoActivity">
 
     <include layout="@layout/background_video" />
     <ScrollView
