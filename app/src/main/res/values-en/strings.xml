@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Spanish Charters</string>
+    <string name="defaultProgressTitle">defaultProgressTitulo</string>
+    <string name="permission_location_rationale_title">permission_location_rationale_titulo</string>
+    <string name="permission_location_rationale_msg">permision_lacation_rationale_mensaje</string>
+    <string name="permission_granted">Access granted by user</string>
+    <string name="permission_denied_location_title">permission_denied_location_titulo</string>
+    <string name="permission_denied_location_msg">permission_denied_location_mensaje</string>
+    <string name="map_destination">Choose your destination</string>
+    <string name="map_create_error">Sorry! unable to create maps</string>
+    <string name="userInfo_Title">Information</string>
+    <string name="userInfo_sent_title">Data sent to server...\n\n</string>
+    <string name="userInfo_sent_name">"Name: "</string>
+    <string name="userInfo_sent_email">"Email: "</string>
+    <string name="userInfo_sent_phone">"Phone: "</string>
+    <string name="userInfo_sent_ship_id">"ShipID: "</string>
+    <string name="userInfo_sent_ship_name">"ShipName: "</string>
+    <string name="map_pin_hint">Touch to access</string>
+    <string name="splash_connection_error">Connection error. Reconnecting...</string>
+    <string name="user_info_name">Name</string>
+    <string name="user_info_email">Email</string>
+    <string name="user_info_phone">Phone</string>
+    <string name="user_info_send">Send request</string>
+    <string name="user_info_title">Request Information</string>
+    <string name="ship_detail_moreInfoButton">More info</string>
+    <string name="radio_week">Week</string>
+    <string name="radio_share">Share</string>
+    <string name="radio_day">Day</string>
+    <string name="detail_equipment">Equipment</string>
+    <string name="detail_specifications">Specifications</string>
+    <string name="detail_mandatory_extras">Mandatory Extras</string>
+    <string name="detail_optional_extras">Optional Extras</string>
+    <string name="detail_features">Features</string>
+    <string name="info_textarea">Additional Information</string>
+    <string name="info_term">I Agree with the terms</string>
+    <string name="info_terms">Term conditions (Spanish only)</string>
+</resources>

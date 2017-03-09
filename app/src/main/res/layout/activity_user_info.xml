@@ -1,61 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_user_info"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#0096C8"
+    android:background="#290096C8"
     android:gravity="center_horizontal"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.hackersparrow.hackersparrow.activities.UserInfoActivity">
+    tools:context="com.spanishcharters.spanishcharters.activities.UserInfoActivity">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="Nombre"
-        android:textColor="#FFF"
-        android:textColorHint="#CCC"
-        android:backgroundTint="#fff"
-        android:textCursorDrawable="@drawable/custom_cursor"
-        android:ems="10"
-        android:layout_margin="20dp"
-        android:id="@+id/info_name" />
+    <include layout="@layout/background_video" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#800096C8"
+        android:scrollbars="none">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#100096C8"
+        android:gravity="center_horizontal">
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="@string/user_info_name"
+            android:textColor="#FFF"
+            android:textColorHint="#FFF"
+            android:backgroundTint="#fff"
+            android:textCursorDrawable="@drawable/custom_cursor"
+            android:ems="10"
+            android:layout_margin="20dp"
+            android:id="@+id/info_name" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:textColor="#FFF"
-        android:textColorHint="#CCC"
-        android:hint="Direccion de correo"
-        android:backgroundTint="#fff"
-        android:textCursorDrawable="@drawable/custom_cursor"
-        android:layout_margin="20dp"
-        android:id="@+id/info_email" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:textColor="#FFF"
+            android:textColorHint="#FFF"
+            android:hint="@string/user_info_email"
+            android:backgroundTint="#fff"
+            android:textCursorDrawable="@drawable/custom_cursor"
+            android:layout_margin="20dp"
+            android:id="@+id/info_email" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="phone"
-        android:textColor="#FFF"
-        android:textColorHint="#CCC"
-        android:hint="Teléfono"
-        android:backgroundTint="#fff"
-        android:textCursorDrawable="@drawable/custom_cursor"
-        android:ems="10"
-        android:layout_margin="20dp"
-        android:id="@+id/info_phone" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:textColor="#FFF"
+            android:textColorHint="#FFF"
+            android:hint="@string/user_info_phone"
+            android:backgroundTint="#fff"
+            android:textCursorDrawable="@drawable/custom_cursor"
+            android:ems="10"
+            android:layout_margin="20dp"
+            android:id="@+id/info_phone" />
 
-    <Button
-        android:text="Enviar datos"
-        android:layout_margin="20dp"
-        android:padding="10dp"
-        android:textColor="#FFF"
-        android:background="@drawable/button_borders"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/info_send_button"/>
-</LinearLayout>
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_margin="20dp"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/rb_week"
+                android:layout_margin="5dp"
+                android:text="@string/radio_week"
+                android:textColor="#FFF"
+                android:buttonTint="#FFF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"/>
+
+            <RadioButton
+                android:id="@+id/rb_share"
+                android:layout_margin="5dp"
+                android:text="@string/radio_share"
+                android:textColor="#FFF"
+                android:buttonTint="#FFF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"/>
+
+            <RadioButton
+                android:id="@+id/rb_day"
+                android:layout_margin="5dp"
+                android:text="@string/radio_day"
+                android:textColor="#FFF"
+                android:buttonTint="#FFF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"/>
+
+        </RadioGroup>
+
+        <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+            android:visibility="gone"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_margin="20dp"
+            android:layout_gravity="center"
+            android:background="@drawable/button_borders"
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:mcv_arrowColor="#FFF"
+            app:mcv_dateTextAppearance="@style/CustomTextAppearance"
+            app:mcv_headerTextAppearance="@style/HeaderTextAppearance"
+            app:mcv_weekDayTextAppearance="@style/CustomDayTextAppearance"
+            app:mcv_firstDayOfWeek="monday"
+            app:mcv_showOtherDates="decorated_disabled"
+            app:mcv_selectionColor="#FFF"
+            />
+
+        <EditText
+            android:visibility="gone"
+            android:padding="10dp"
+            android:id="@+id/textArea_information"
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_borders"
+            android:gravity="top|left"
+            android:inputType="textMultiLine"
+            android:overScrollMode="always"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical"
+            android:lines="6"
+            android:scrollHorizontally="false"
+            android:textColor="#FFF"
+            android:textColorHint="#FFF"
+            android:hint="@string/info_textarea"
+            android:textCursorDrawable="@drawable/custom_cursor"/>
+
+        <CheckBox
+            android:id="@+id/info_checkbox"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:buttonTint="#FFF"
+            android:text="@string/info_term"
+            android:textColor="#FFF"/>
+        <TextView
+            android:id="@+id/info_condition"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#FFF"
+            android:textStyle="bold"
+            android:text="@string/info_terms"/>
+
+        <Button
+            android:text="@string/user_info_send"
+            android:layout_margin="20dp"
+            android:padding="10dp"
+            android:textColor="#AAA"
+            android:background="@drawable/button_borders"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/info_send_button"/>
+    </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

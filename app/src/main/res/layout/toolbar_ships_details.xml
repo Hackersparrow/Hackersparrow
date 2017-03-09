@@ -21,7 +21,7 @@
         android:padding="4dp"
         android:textSize="14dp"
         android:textColor="#FFF"
-        android:text="Solicitar"
+        android:text="@string/ship_detail_moreInfoButton"
         android:gravity="center"
         android:background="@drawable/button_borders"
         android:layout_gravity="center"

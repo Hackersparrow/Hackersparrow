@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_about_us"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.spanishcharters.spanishcharters.activities.AboutUsActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/card_view_2"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                card_view:cardCornerRadius="10dp"
+                card_view:cardBackgroundColor="#0096c8"
+                android:elevation="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    >
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/image_saul"
+                        android:layout_width="96dp"
+                        android:layout_height="96dp"
+                        android:src="@drawable/saul_img"
+                        app:civ_border_width="1dp"
+                        app:civ_border_color="#ffffff"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="15dp"
+                        android:elevation="20dp"
+                        />
+                    <FrameLayout
+                        android:layout_width="2dp"
+                        android:layout_height="120dp"
+                        android:layout_toRightOf="@+id/image_saul"
+                        android:background="#ffffff"
+                        android:id="@+id/frame_saul"
+                        android:layout_centerInParent="true"
+                        >
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="7dp"
+                        android:id="@+id/nombre_saul_tarjeta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Saúl Marín Querido"
+                        android:textColor="#ffffff"
+                        android:layout_toRightOf="@+id/frame_saul"
+                        android:textStyle="bold"
+                        />
+
+                    <ImageView
+                        android:id="@+id/card_view_linkedin_saul"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignStart="@+id/email_saul_tarjeta"
+                        android:layout_alignLeft="@+id/email_saul_tarjeta"
+                        android:src="@drawable/linkedin_icon"
+                        android:layout_toRightOf="@+id/image_saul"
+                        android:layout_below="@+id/email_saul_tarjeta"
+                        android:layout_marginBottom="10dp"
+                        />
+                    <ImageView
+                        android:id="@+id/card_view_github_saul"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/github_icon"
+                        android:layout_alignStart="@+id/email_saul_tarjeta"
+                        android:layout_alignLeft="@+id/email_saul_tarjeta"
+                        android:layout_below="@+id/card_view_linkedin_saul"
+                        android:layout_marginBottom="10dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/email_saul_tarjeta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="saul.appdev@gmail.com"
+                        android:textColor="#ffffff"
+                        android:layout_below="@+id/nombre_saul_tarjeta"
+                        android:layout_alignLeft="@+id/nombre_saul_tarjeta"
+                        android:layout_alignStart="@+id/nombre_saul_tarjeta"
+                        android:layout_marginBottom="5dp"
+                        />
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/card_view_1"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                card_view:cardCornerRadius="10dp"
+                card_view:cardBackgroundColor="#0096c8"
+                android:elevation="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    >
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/image_matias"
+                        android:layout_width="96dp"
+                        android:layout_height="96dp"
+                        android:src="@drawable/matias_img"
+                        app:civ_border_width="1dp"
+                        app:civ_border_color="#ffffff"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="15dp"
+                        android:elevation="20dp"
+                        android:layout_centerVertical="true"
+                        />
+                    <FrameLayout
+                        android:layout_width="2dp"
+                        android:layout_height="120dp"
+                        android:layout_toRightOf="@+id/image_matias"
+                        android:background="#ffffff"
+                        android:id="@+id/frame_matias"
+                        android:layout_centerInParent="true"
+                        >
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="7dp"
+                        android:id="@+id/nombre_matias_tarjeta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="José Matías Alcaide Jiménez"
+                        android:textColor="#ffffff"
+                        android:layout_toRightOf="@+id/frame_matias"
+                        android:textStyle="bold"
+                        />
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="7dp"
+                        android:id="@+id/email_matias_tarjeta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="jmajyo@gmail.com"
+                        android:textColor="#ffffff"
+                        android:layout_toRightOf="@+id/image_matias"
+                        android:layout_below="@+id/nombre_matias_tarjeta"
+                        android:layout_marginBottom="5dp"
+                        />
+                    <ImageView
+                        android:id="@+id/card_view_linkedin_matias"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignStart="@+id/email_matias_tarjeta"
+                        android:layout_alignLeft="@+id/email_matias_tarjeta"
+                        android:src="@drawable/linkedin_icon"
+                        android:layout_toRightOf="@+id/image_matias"
+                        android:layout_below="@+id/email_matias_tarjeta"
+                        android:layout_marginBottom="10dp"
+                        />
+                    <ImageView
+                        android:id="@+id/card_view_github_matias"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/github_icon"
+                        android:layout_alignStart="@+id/email_matias_tarjeta"
+                        android:layout_alignLeft="@+id/email_matias_tarjeta"
+                        android:layout_below="@+id/card_view_linkedin_matias"
+                        android:layout_marginBottom="10dp"
+                        />
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/card_view_3"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                card_view:cardCornerRadius="10dp"
+                card_view:cardBackgroundColor="#0096c8"
+                android:elevation="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    >
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/image_marcos"
+                        android:layout_width="96dp"
+                        android:layout_height="96dp"
+                        android:src="@drawable/marcos_img"
+                        app:civ_border_width="1dp"
+                        app:civ_border_color="#ffffff"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="15dp"
+                        android:elevation="20dp"
+                        />
+                    <FrameLayout
+                        android:layout_width="2dp"
+                        android:layout_height="160dp"
+                        android:layout_toRightOf="@id/image_marcos"
+                        android:background="#ffffff"
+                        android:id="@+id/frame_marcos"
+                        android:layout_centerInParent="true"
+                        >
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="7dp"
+                        android:id="@+id/nombre_marcos_tarjeta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Marcos Valdivieso Troyano"
+                        android:textColor="#ffffff"
+                        android:layout_toRightOf="@+id/frame_marcos"
+                        android:textStyle="bold"
+                        />
+                    <TextView
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/email_marcos_tarjeta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="hablamos@marcosvaldi.com"
+                        android:textColor="#ffffff"
+                        android:layout_toRightOf="@+id/image_marcos"
+                        android:layout_below="@+id/nombre_marcos_tarjeta"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        />
+                    <TextView
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:id="@+id/web_marcos_tarjeta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="marcosvaldi.com"
+                        android:textColor="#ffffff"
+                        android:layout_toRightOf="@+id/image_marcos"
+                        android:layout_below="@+id/email_marcos_tarjeta"
+                        />
+                    <ImageView
+                        android:id="@+id/card_view_linkedin_marcos"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignStart="@+id/email_marcos_tarjeta"
+                        android:layout_alignLeft="@+id/email_marcos_tarjeta"
+                        android:src="@drawable/linkedin_icon"
+                        android:layout_toRightOf="@+id/image_marcos"
+                        android:layout_below="@+id/web_marcos_tarjeta"
+                        android:layout_marginBottom="10dp"
+                        />
+                    <ImageView
+                        android:id="@+id/card_view_github_marcos"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/github_icon"
+                        android:layout_alignStart="@+id/email_marcos_tarjeta"
+                        android:layout_alignLeft="@+id/email_marcos_tarjeta"
+                        android:layout_below="@+id/card_view_linkedin_marcos"
+                        android:layout_marginBottom="10dp"
+                        />
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/card_view_4"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                card_view:cardCornerRadius="10dp"
+                card_view:cardBackgroundColor="#0096c8"
+                android:elevation="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    >
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/image_adri"
+                        android:layout_width="96dp"
+                        android:layout_height="96dp"
+                        android:src="@drawable/adri_img"
+                        app:civ_border_width="1dp"
+                        app:civ_border_color="#ffffff"
+                        android:layout_marginTop="22dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="15dp"
+                        android:elevation="20dp"
+                        android:layout_centerVertical="true"
+                        />
+                    <FrameLayout
+                        android:layout_width="2dp"
+                        android:layout_height="120dp"
+                        android:layout_toRightOf="@+id/image_adri"
+                        android:background="#ffffff"
+                        android:id="@+id/frame_adri"
+                        android:layout_centerInParent="true"
+                        >
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="7dp"
+                        android:id="@+id/nombre_adri_tarjeta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Adrián Díaz Mancera"
+                        android:textColor="#ffffff"
+                        android:layout_toRightOf="@+id/frame_adri"
+                        android:textStyle="bold"
+                        />
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="7dp"
+                        android:id="@+id/email_adri_tarjeta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="adriandiazmancera@hotmail.com"
+                        android:textColor="#ffffff"
+                        android:layout_toRightOf="@+id/image_adri"
+                        android:layout_below="@+id/nombre_adri_tarjeta"
+                        android:layout_marginBottom="5dp"
+                        />
+                    <ImageView
+                        android:id="@+id/card_view_linkedin_adri"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignStart="@+id/email_adri_tarjeta"
+                        android:layout_alignLeft="@+id/email_adri_tarjeta"
+                        android:src="@drawable/linkedin_icon"
+                        android:layout_toRightOf="@+id/image_adri"
+                        android:layout_below="@+id/email_adri_tarjeta"
+                        android:layout_marginBottom="10dp"
+                        />
+                    <ImageView
+                        android:id="@+id/card_view_github_adri"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/github_icon"
+                        android:layout_alignStart="@+id/email_adri_tarjeta"
+                        android:layout_alignLeft="@+id/email_adri_tarjeta"
+                        android:layout_below="@+id/card_view_linkedin_adri"
+                        android:layout_marginBottom="10dp"
+                        />
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/card_view_6"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                card_view:cardCornerRadius="10dp"
+                card_view:cardBackgroundColor="#0096c8"
+                android:elevation="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    >
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/image_alex"
+                        android:layout_width="96dp"
+                        android:layout_height="96dp"
+                        android:src="@drawable/alex_img"
+                        app:civ_border_width="1dp"
+                        app:civ_border_color="#ffffff"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="15dp"
+                        android:elevation="20dp"
+                        android:layout_centerVertical="true"
+                        />
+                    <FrameLayout
+                        android:layout_width="2dp"
+                        android:layout_height="140dp"
+                        android:layout_toRightOf="@+id/image_alex"
+                        android:background="#ffffff"
+                        android:id="@+id/frame_alex"
+                        android:layout_centerInParent="true"
+                        >
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="7dp"
+                        android:id="@+id/nombre_alex_tarjeta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alejandro Rodríguez Sanz"
+                        android:textColor="#ffffff"
+                        android:layout_toRightOf="@+id/frame_alex"
+                        android:textStyle="bold"
+                        />
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="7dp"
+                        android:id="@+id/email_alex_tarjeta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="alejandro.rodriguez.sanz@gmail.com"
+                        android:textColor="#ffffff"
+                        android:layout_toRightOf="@+id/image_alex"
+                        android:layout_below="@+id/nombre_alex_tarjeta"
+                        android:layout_marginBottom="5dp"
+                        />
+                    <ImageView
+                        android:id="@+id/card_view_linkedin_alex"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignStart="@+id/email_alex_tarjeta"
+                        android:layout_alignLeft="@+id/email_alex_tarjeta"
+                        android:src="@drawable/linkedin_icon"
+                        android:layout_toRightOf="@+id/image_alex"
+                        android:layout_below="@+id/email_alex_tarjeta"
+                        android:layout_marginBottom="10dp"
+                        />
+                    <ImageView
+                        android:id="@+id/card_view_github_alex"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/github_icon"
+                        android:layout_alignStart="@+id/email_alex_tarjeta"
+                        android:layout_alignLeft="@+id/email_alex_tarjeta"
+                        android:layout_below="@+id/card_view_linkedin_alex"
+                        android:layout_marginBottom="10dp"
+                        />
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/card_view_5"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                card_view:cardCornerRadius="10dp"
+                card_view:cardBackgroundColor="#0096c8"
+                android:elevation="15dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    >
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/image_alberto"
+                        android:layout_width="96dp"
+                        android:layout_height="96dp"
+                        android:src="@drawable/alberto_img"
+                        app:civ_border_width="1dp"
+                        app:civ_border_color="#ffffff"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="15dp"
+                        android:elevation="20dp"
+                        android:layout_centerVertical="true"
+                        />
+                    <FrameLayout
+                        android:layout_width="2dp"
+                        android:layout_height="120dp"
+                        android:layout_toRightOf="@+id/image_alberto"
+                        android:background="#ffffff"
+                        android:id="@+id/frame_alberto"
+                        android:layout_centerInParent="true"
+                        >
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="7dp"
+                        android:id="@+id/nombre_alberto_tarjeta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alberto Martínez Quintana"
+                        android:textColor="#ffffff"
+                        android:layout_toRightOf="@+id/frame_alberto"
+                        android:textStyle="bold"
+                        />
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="7dp"
+                        android:id="@+id/email_alberto_tarjeta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="al_loki@msn.com"
+                        android:textColor="#ffffff"
+                        android:layout_toRightOf="@+id/image_alberto"
+                        android:layout_below="@+id/nombre_alberto_tarjeta"
+                        />
+                    <ImageView
+                        android:id="@+id/card_view_linkedin_alberto"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignStart="@+id/email_alberto_tarjeta"
+                        android:layout_alignLeft="@+id/email_alberto_tarjeta"
+                        android:src="@drawable/linkedin_icon"
+                        android:layout_toRightOf="@+id/image_alberto"
+                        android:layout_below="@+id/email_alberto_tarjeta"
+                        android:layout_marginBottom="10dp"
+                        />
+                    <ImageView
+                        android:id="@+id/card_view_github_alberto"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/github_icon"
+                        android:layout_alignStart="@+id/email_alberto_tarjeta"
+                        android:layout_alignLeft="@+id/email_alberto_tarjeta"
+                        android:layout_below="@+id/card_view_linkedin_alberto"
+                        android:layout_marginBottom="10dp"
+                        />
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+</RelativeLayout>

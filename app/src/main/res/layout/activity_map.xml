@@ -4,7 +4,7 @@
     android:id="@+id/activity_map"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.hackersparrow.hackersparrow.activities.MapActivity">
+    tools:context="com.spanishcharters.spanishcharters.activities.MapActivity">
 
     <fragment
         android:id="@+id/activity_map___map_fragment"
