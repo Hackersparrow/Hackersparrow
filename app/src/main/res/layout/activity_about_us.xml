@@ -75,40 +75,39 @@
                         android:layout_toRightOf="@id/frame_saul"
                         android:textStyle="bold"
                         />
+
+                    <ImageView
+                        android:id="@+id/card_view_linkedin_saul"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignStart="@id/email_saul_tarjeta"
+                        android:layout_alignLeft="@id/email_saul_tarjeta"
+                        android:src="@drawable/linkedin_icon"
+                        android:layout_toRightOf="@id/image_saul"
+                        android:layout_below="@+id/email_saul_tarjeta"
+                        android:layout_marginBottom="10dp"
+                        />
+                    <ImageView
+                        android:id="@+id/card_view_github_saul"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/github_icon"
+                        android:layout_alignStart="@id/email_saul_tarjeta"
+                        android:layout_alignLeft="@id/email_saul_tarjeta"
+                        android:layout_below="@+id/card_view_linkedin_saul"
+                        android:layout_marginBottom="10dp"
+                        />
+
                     <TextView
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="7dp"
                         android:id="@+id/email_saul_tarjeta"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="saul.appdev@gmail.com"
                         android:textColor="#ffffff"
-                        android:layout_toRightOf="@id/image_saul"
-                        android:layout_below="@id/nombre_saul_tarjeta"
-                        />
-                    <TextView
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="7dp"
-                        android:id="@+id/linkedin_saul_tarjeta"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="https://www.linkedin.com/in/saulmarinquerido"
-                        android:textColor="#ffffff"
-                        android:layout_toRightOf="@id/image_saul"
-                        android:layout_below="@id/email_saul_tarjeta"
-                        />
-
-                    <TextView
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="7dp"
-                        android:id="@+id/git_saul_tarjeta"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="https://github.com/smappdev"
-                        android:textColor="#ffffff"
-                        android:layout_toRightOf="@id/image_saul"
-                        android:layout_below="@id/linkedin_saul_tarjeta"
-                        android:layout_marginBottom="10dp"
+                        android:layout_below="@+id/nombre_saul_tarjeta"
+                        android:layout_alignLeft="@+id/nombre_saul_tarjeta"
+                        android:layout_alignStart="@+id/nombre_saul_tarjeta"
+                        android:layout_marginBottom="5dp"
                         />
                 </RelativeLayout>
 
@@ -178,29 +177,27 @@
                         android:textColor="#ffffff"
                         android:layout_toRightOf="@id/image_matias"
                         android:layout_below="@id/nombre_matias_tarjeta"
+                        android:layout_marginBottom="5dp"
                         />
-                    <TextView
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="7dp"
-                        android:id="@+id/linkedin_matias_tarjeta"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="www.linkedin.com/in/josematiasalcaidejimenez"
-                        android:textColor="#ffffff"
+                    <ImageView
+                        android:id="@+id/card_view_linkedin_matias"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignStart="@id/email_matias_tarjeta"
+                        android:layout_alignLeft="@id/email_matias_tarjeta"
+                        android:src="@drawable/linkedin_icon"
                         android:layout_toRightOf="@id/image_matias"
-                        android:layout_below="@id/email_matias_tarjeta"
+                        android:layout_below="@+id/email_matias_tarjeta"
+                        android:layout_marginBottom="10dp"
                         />
-
-                    <TextView
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="7dp"
-                        android:id="@+id/git_matias_tarjeta"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="https://github.com/jmajyo"
-                        android:textColor="#ffffff"
-                        android:layout_toRightOf="@id/image_matias"
-                        android:layout_below="@id/linkedin_matias_tarjeta"
+                    <ImageView
+                        android:id="@+id/card_view_github_matias"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/github_icon"
+                        android:layout_alignStart="@id/email_matias_tarjeta"
+                        android:layout_alignLeft="@id/email_matias_tarjeta"
+                        android:layout_below="@+id/card_view_linkedin_matias"
                         android:layout_marginBottom="10dp"
                         />
                 </RelativeLayout>
@@ -241,7 +238,7 @@
                         />
                     <FrameLayout
                         android:layout_width="2dp"
-                        android:layout_height="120dp"
+                        android:layout_height="140dp"
                         android:layout_toRightOf="@id/image_marcos"
                         android:background="#ffffff"
                         android:id="@+id/frame_marcos"
@@ -250,20 +247,32 @@
                     </FrameLayout>
 
                     <TextView
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="10dp"
                         android:layout_marginLeft="7dp"
+                        android:id="@+id/nombre_marcos_tarjeta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Marcos Valdivieso Troyano"
+                        android:textColor="#ffffff"
+                        android:layout_toRightOf="@id/frame_marcos"
+                        android:textStyle="bold"
+                        />
+                    <TextView
+                        android:layout_marginLeft="10dp"
                         android:id="@+id/email_marcos_tarjeta"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="hablamos@marcosvaldi.com"
                         android:textColor="#ffffff"
                         android:layout_toRightOf="@id/image_marcos"
-                        android:layout_below="@+id/nombre_marcos_tarjeta"
+                        android:layout_below="@id/nombre_marcos_tarjeta"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
                         />
                     <TextView
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="7dp"
-                        android:id="@+id/linkedin_marcos_tarjeta"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:id="@+id/web_marcos_tarjeta"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="marcosvaldi.com"
@@ -271,30 +280,27 @@
                         android:layout_toRightOf="@id/image_marcos"
                         android:layout_below="@id/email_marcos_tarjeta"
                         />
-
-                    <TextView
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="7dp"
-                        android:id="@+id/git_marcos_tarjeta"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="https://github.com/markinhos3"
-                        android:textColor="#ffffff"
+                    <ImageView
+                        android:id="@+id/card_view_linkedin_marcos"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignStart="@id/email_marcos_tarjeta"
+                        android:layout_alignLeft="@id/email_marcos_tarjeta"
+                        android:src="@drawable/linkedin_icon"
                         android:layout_toRightOf="@id/image_marcos"
-                        android:layout_below="@id/linkedin_marcos_tarjeta"
+                        android:layout_below="@+id/web_marcos_tarjeta"
                         android:layout_marginBottom="10dp"
                         />
-
-                    <TextView
-                        android:id="@+id/nombre_marcos_tarjeta"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Marcos Valdivieso Troyano"
-                        android:textColor="#ffffff"
-                        android:textStyle="bold"
-                        android:layout_alignTop="@+id/image_marcos"
-                        android:layout_alignLeft="@+id/email_marcos_tarjeta"
-                        android:layout_alignStart="@+id/email_marcos_tarjeta" />
+                    <ImageView
+                        android:id="@+id/card_view_github_marcos"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/github_icon"
+                        android:layout_alignStart="@id/email_marcos_tarjeta"
+                        android:layout_alignLeft="@id/email_marcos_tarjeta"
+                        android:layout_below="@+id/card_view_linkedin_marcos"
+                        android:layout_marginBottom="10dp"
+                        />
                 </RelativeLayout>
 
             </android.support.v7.widget.CardView>
@@ -363,29 +369,27 @@
                         android:textColor="#ffffff"
                         android:layout_toRightOf="@id/image_adri"
                         android:layout_below="@id/nombre_adri_tarjeta"
+                        android:layout_marginBottom="5dp"
                         />
-                    <TextView
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="7dp"
-                        android:id="@+id/linkedin_adri_tarjeta"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="https://www.linkedin.com/in/adrian-diaz-mancera"
-                        android:textColor="#ffffff"
+                    <ImageView
+                        android:id="@+id/card_view_linkedin_adri"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignStart="@id/email_adri_tarjeta"
+                        android:layout_alignLeft="@id/email_adri_tarjeta"
+                        android:src="@drawable/linkedin_icon"
                         android:layout_toRightOf="@id/image_adri"
-                        android:layout_below="@id/email_adri_tarjeta"
+                        android:layout_below="@+id/email_adri_tarjeta"
+                        android:layout_marginBottom="10dp"
                         />
-
-                    <TextView
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="7dp"
-                        android:id="@+id/git_adri_tarjeta"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="https://github.com/adriidm"
-                        android:textColor="#ffffff"
-                        android:layout_toRightOf="@id/image_adri"
-                        android:layout_below="@id/linkedin_adri_tarjeta"
+                    <ImageView
+                        android:id="@+id/card_view_github_adri"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/github_icon"
+                        android:layout_alignStart="@id/email_adri_tarjeta"
+                        android:layout_alignLeft="@id/email_adri_tarjeta"
+                        android:layout_below="@+id/card_view_linkedin_adri"
                         android:layout_marginBottom="10dp"
                         />
                 </RelativeLayout>
@@ -456,31 +460,30 @@
                         android:textColor="#ffffff"
                         android:layout_toRightOf="@id/image_alex"
                         android:layout_below="@id/nombre_alex_tarjeta"
+                        android:layout_marginBottom="5dp"
                         />
-                    <TextView
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="7dp"
-                        android:id="@+id/linkedin_alex_tarjeta"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="https://www.linkedin.com/in/alejandroreodriguezsanz"
-                        android:textColor="#ffffff"
+                    <ImageView
+                        android:id="@+id/card_view_linkedin_alex"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignStart="@id/email_alex_tarjeta"
+                        android:layout_alignLeft="@id/email_alex_tarjeta"
+                        android:src="@drawable/linkedin_icon"
                         android:layout_toRightOf="@id/image_alex"
-                        android:layout_below="@id/email_alex_tarjeta"
-                        />
-
-                    <TextView
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="7dp"
-                        android:id="@+id/git_alex_tarjeta"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="https://github.com/alexkassabian"
-                        android:textColor="#ffffff"
-                        android:layout_toRightOf="@id/image_alex"
-                        android:layout_below="@id/linkedin_alex_tarjeta"
+                        android:layout_below="@+id/email_alex_tarjeta"
                         android:layout_marginBottom="10dp"
                         />
+                    <ImageView
+                        android:id="@+id/card_view_github_alex"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/github_icon"
+                        android:layout_alignStart="@id/email_alex_tarjeta"
+                        android:layout_alignLeft="@id/email_alex_tarjeta"
+                        android:layout_below="@+id/card_view_linkedin_alex"
+                        android:layout_marginBottom="10dp"
+                        />
+
                 </RelativeLayout>
 
             </android.support.v7.widget.CardView>
@@ -519,7 +522,7 @@
                         />
                     <FrameLayout
                         android:layout_width="2dp"
-                        android:layout_height="140dp"
+                        android:layout_height="120dp"
                         android:layout_toRightOf="@id/image_alberto"
                         android:background="#ffffff"
                         android:id="@+id/frame_alberto"
@@ -550,28 +553,25 @@
                         android:layout_toRightOf="@id/image_alberto"
                         android:layout_below="@id/nombre_alberto_tarjeta"
                         />
-                    <TextView
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="7dp"
-                        android:id="@+id/linkedin_alberto_tarjeta"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="linkedin.com/in/alberto-martinez-quintana-b1306b130"
-                        android:textColor="#ffffff"
+                    <ImageView
+                        android:id="@+id/card_view_linkedin_alberto"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignStart="@id/email_alberto_tarjeta"
+                        android:layout_alignLeft="@id/email_alberto_tarjeta"
+                        android:src="@drawable/linkedin_icon"
                         android:layout_toRightOf="@id/image_alberto"
-                        android:layout_below="@id/email_alberto_tarjeta"
+                        android:layout_below="@+id/email_alberto_tarjeta"
+                        android:layout_marginBottom="10dp"
                         />
-
-                    <TextView
-                        android:layout_marginTop="5dp"
-                        android:layout_marginLeft="7dp"
-                        android:id="@+id/git_alberto_tarjeta"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="https://github.com/Alber81"
-                        android:textColor="#ffffff"
-                        android:layout_toRightOf="@id/image_alberto"
-                        android:layout_below="@id/linkedin_alberto_tarjeta"
+                    <ImageView
+                        android:id="@+id/card_view_github_alberto"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/github_icon"
+                        android:layout_alignStart="@id/email_alberto_tarjeta"
+                        android:layout_alignLeft="@id/email_alberto_tarjeta"
+                        android:layout_below="@+id/card_view_linkedin_alberto"
                         android:layout_marginBottom="10dp"
                         />
                 </RelativeLayout>
