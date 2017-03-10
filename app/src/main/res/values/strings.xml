@@ -46,4 +46,5 @@
     <string name="github_alex">https://github.com/alexkassabian</string>
     <string name="linkedin_alberto">https://www.linkedin.com/in/alberto-martinez-quintana-b1306b130</string>
     <string name="github_alberto">https://github.com/Alber81</string>
+    <string name="send_text_info_sb">Datos enviados correctamente</string>
 </resources>

@@ -34,4 +34,5 @@
     <string name="info_textarea">Additional Information</string>
     <string name="info_term">I Agree with the terms</string>
     <string name="info_terms">Term conditions (Spanish only)</string>
+    <string name="send_text_info_sb">Data sent correclty</string>
 </resources>
