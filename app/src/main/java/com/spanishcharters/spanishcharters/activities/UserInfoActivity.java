@@ -164,7 +164,7 @@ public class UserInfoActivity extends AppCompatActivity {
 
                     sendPost(view.getContext(), name, email, phone, activeButtonText, correctStartDate, String.valueOf(activeButtonDuration), additionalInfo, ship, port);
 
-                    String snackBarText = "Datos enviados correctamente";
+                    String snackBarText = getString(R.string.send_text_info_sb);
 
                     View rootView = findViewById(android.R.id.content);
                     Snackbar mySnackBar = Snackbar.make(rootView, snackBarText, Snackbar.LENGTH_LONG);
