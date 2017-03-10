@@ -122,11 +122,19 @@ public class UserInfoActivity extends AppCompatActivity {
         materialCalendarView.setOnDateChangedListener(new OnDateSelectedListener() {
             @Override
             public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
-                if (activeButton ==0){
-                        selectedDate = materialCalendarView.getSelectedDate();
-                        long ltime = selectedDate.getDate().getTime() + 6*24*60*60*1000;
-                        Date end_range_date = new Date(ltime);
-                        materialCalendarView.selectRange(CalendarDay.from(selectedDate.getDate()), CalendarDay.from(end_range_date));
+                if (activeButton == 0 || activeButton == 1){
+                    selectedDate = materialCalendarView.getSelectedDates().get(0);
+
+                    Calendar date1 = selectedDate.getCalendar();
+                    while (date1.get(Calendar.DAY_OF_WEEK) != Calendar.SATURDAY) {
+                        date1.add(Calendar.DATE, 1);
+                    }
+                    materialCalendarView.setDateSelected(date1, true);
+                    selectedDate = CalendarDay.from(date1);
+
+                    long ltime = selectedDate.getDate().getTime() + 6*24*60*60*1000;
+                    Date end_range_date = new Date(ltime);
+                    materialCalendarView.selectRange(CalendarDay.from(selectedDate.getDate()), CalendarDay.from(end_range_date));
                 }
             }
         });
@@ -192,7 +200,15 @@ public class UserInfoActivity extends AppCompatActivity {
                     activeButton = 0;
                     activeButtonDuration = 7;
                     activeButtonText = "Una semana";
-                    selectedDate = materialCalendarView.getSelectedDate();
+                    selectedDate = materialCalendarView.getSelectedDates().get(0);
+
+                    Calendar date1 = selectedDate.getCalendar();
+                    while (date1.get(Calendar.DAY_OF_WEEK) != Calendar.SATURDAY) {
+                        date1.add(Calendar.DATE, 1);
+                    }
+                    materialCalendarView.setDateSelected(date1, true);
+                    selectedDate = CalendarDay.from(date1);
+
                     long ltime = selectedDate.getDate().getTime() + 6*24*60*60*1000;
                     Date end_range_date = new Date(ltime);
                     materialCalendarView.selectRange(CalendarDay.from(selectedDate.getDate()), CalendarDay.from(end_range_date));
@@ -200,12 +216,20 @@ public class UserInfoActivity extends AppCompatActivity {
             case R.id.rb_share:
                 if (checked)
                     activeButton = 1;
-                    activeButtonDuration = 1;
+                    activeButtonDuration = 7;
                     activeButtonText = "Compartir barco";
-                    Log.d("OPTION", "" + materialCalendarView.getSelectedDates());
-                    firstDay = materialCalendarView.getSelectedDates().get(0);
-                    materialCalendarView.clearSelection();
-                    materialCalendarView.setDateSelected(firstDay, true);
+                    selectedDate = materialCalendarView.getSelectedDates().get(0);
+
+                    Calendar date2 = selectedDate.getCalendar();
+                    while (date2.get(Calendar.DAY_OF_WEEK) != Calendar.SATURDAY) {
+                        date2.add(Calendar.DATE, 1);
+                    }
+                    materialCalendarView.setDateSelected(date2, true);
+                    selectedDate = CalendarDay.from(date2);
+
+                    long ltimeShare = selectedDate.getDate().getTime() + 6*24*60*60*1000;
+                    Date end_range_date_share = new Date(ltimeShare);
+                    materialCalendarView.selectRange(CalendarDay.from(selectedDate.getDate()), CalendarDay.from(end_range_date_share));
                     break;
             case R.id.rb_day:
                 if (checked)

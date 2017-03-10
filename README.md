@@ -11,6 +11,8 @@
 
 ![aboutUs2](screenshots/aboutUs2.png "aboutUs2")
 
+![shipsList](screenshots/shipsList.png "shipsList")
+
 ![shipDetails](screenshots/shipDetails.png "shipDetails")
 
 ![infoScreen1](screenshots/infoScreen1.png "infoScreen1")
