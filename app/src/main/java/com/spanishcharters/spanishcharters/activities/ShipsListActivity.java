@@ -44,10 +44,10 @@ public class ShipsListActivity extends AppCompatActivity {
         else {
             getSupportActionBar().show();
         }
-        if (Locale.getDefault().getLanguage().contentEquals("en")) {
-            xmlParser.execute("http://spanishcharters.com/en/api/barcos");
-        }else{
+        if (Locale.getDefault().getLanguage().contentEquals("es")) {
             xmlParser.execute("http://spanishcharters.com/es/api/barcos");
+        }else{
+            xmlParser.execute("http://spanishcharters.com/en/api/barcos");
         }
 
         try {
