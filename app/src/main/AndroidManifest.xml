@@ -25,7 +25,8 @@
             android:name="com.spanishcharters.spanishcharters.activities.SplashScreen"
             android:screenOrientation="portrait"></activity>
         <activity android:name="com.spanishcharters.spanishcharters.MainActivity" />
-        <activity android:name="com.spanishcharters.spanishcharters.activities.MapActivity">
+        <activity android:name="com.spanishcharters.spanishcharters.activities.MapActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
