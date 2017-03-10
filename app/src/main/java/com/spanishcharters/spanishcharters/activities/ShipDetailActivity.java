@@ -71,10 +71,10 @@ public class ShipDetailActivity extends AppCompatActivity {
         titleText = (TextView) findViewById(R.id.detail_bar_title_text);
         titleButton = (TextView) findViewById(R.id.detail_bar_title_button);
 
-        if (Locale.getDefault().getLanguage().contentEquals("en")) {
-            detailUrl = "http://www.spanishcharters.com/en/api/barco/id:";
-        }else{
+        if (Locale.getDefault().getLanguage().contentEquals("es")) {
             detailUrl = "http://www.spanishcharters.com/es/api/barco/id:";
+        }else{
+            detailUrl = "http://www.spanishcharters.com/en/api/barco/id:";
         }
 
         parserXML.execute(detailUrl + ship.getId());
